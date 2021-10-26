@@ -21,8 +21,10 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
     display: flex;
-    height: 90%;
-    width: min(1080px, 60%);
+    max-width: 930px;
+    max-height: 600px;
+    height: 100%;
+    width: 70%;
     background-color: #fff;
     border-radius: 2rem;
     overflow: hidden;
@@ -31,7 +33,6 @@ const Wrapper = styled.div`
 
     @media ${device.desktopM} {
         width: 80%;   
-        height: 80%; 
     }
     @media ${device.desktopS} {
         width: 85%;    
@@ -39,12 +40,11 @@ const Wrapper = styled.div`
 
     @media ${device.laptop} {
         width: 90%;
-        height: min(80%, 65rem); 
+        height: 80%; 
     }
 
     @media ${device.mobileL} {
         width: 100%;
-        height: 80%; 
     }
 
     @media ${device.mobileSS} {

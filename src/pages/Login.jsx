@@ -21,6 +21,8 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
     display: flex;
+    max-width: 920px;
+    max-height: 600px;
     height: 100%;
     width: 70%;
     background-color: #fff;
@@ -31,7 +33,6 @@ const Wrapper = styled.div`
     
     @media ${device.desktopM} {
         width: 80%;   
-        height: 80%; 
     }
     @media ${device.desktopS} {
         width: 85%;    
@@ -39,16 +40,15 @@ const Wrapper = styled.div`
 
     @media ${device.laptop} {
         width: 90%;
-        height: min(70%, 60rem); 
+        height: 80%; 
     }
 
     @media ${device.mobileL} {
         width: 100%;
-        height: 70%; 
     }
 
     @media ${device.mobileSS} {
-        height: 80%;
+        height: 85%;
     }
 `
 
