@@ -26,25 +26,25 @@ export const sliderItems = [
 export const categories = [
     {
       id: 1,
-      img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "SHIRT STYLE!",
+      img: "https://product.hstatic.net/1000230642/product/kv1_fn_a30b3edc7a934ea58297c446e5cdebe7_1024x1024.jpg",
+      title: "SNEAKER",
     },
     {
       id: 2,
-      img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "LOUNGEWEAR LOVE",
+      img: "https://product.hstatic.net/1000230642/product/dpm031600xam_2e2a745e6aa64cbe8ea322b1fea88b1b_1024x1024.png",
+      title: "SANDAL",
     },
     {
       id: 3,
-      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "LIGHT JACKETS",
+      img: "https://product.hstatic.net/1000230642/product/dsmh03801xmn40_1__442a58fcbdbb49d2ba59bae48bed3d51_1024x1024.jpg",
+      title: "RUNNING SHOES",
     },
   ];
 
   export const popularProducts = [
     {
       id:1,
-      img:"https://product.hstatic.net/1000230642/product/bitis_hunter_ht_8.1768w_fixx2_0c455717a18e4d73b4232468f816388e_1024x1024.jpg",
+      img:"https://product.hstatic.net/1000230642/product/06300kem__2__ee9511d154ee4f50814dae12736f5359_1024x1024.jpg",
       price: "325.000 đ",
       stars: 4.6,
       name: 'Nuke Air Pro Max',

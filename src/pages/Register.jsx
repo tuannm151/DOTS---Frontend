@@ -3,6 +3,8 @@ import styled from "styled-components"
 import {ReactComponent as Logo} from "../img/logo.svg"
 import {ReactComponent as Facebook} from "../img/icons8-facebook-50.svg"
 import {ReactComponent as Google} from "../img/icons8-google-50.svg"
+import {device} from '../components/GlobalStyle'
+
 
 const Container = styled.div`
     width: 100vw;
@@ -11,21 +13,56 @@ const Container = styled.div`
     padding: 6rem;
     display: flex;
     justify-content: center;
+
+     @media ${device.mobileL} {
+        padding: 1.5rem 0;
+    }
 `
 
 const Wrapper = styled.div`
     display: flex;
-    height: 100%;
-    width: 70%;
+    height: 90%;
+    width: min(1080px, 60%);
     background-color: #fff;
     border-radius: 2rem;
     overflow: hidden;
     box-shadow: 0px 18px 54px 0px rgba(0,0,0,0.24);
+    align-self: center;
+
+    @media ${device.desktopM} {
+        width: 80%;   
+        height: 80%; 
+    }
+    @media ${device.desktopS} {
+        width: 85%;    
+    }
+
+    @media ${device.laptop} {
+        width: 90%;
+        height: min(80%, 65rem); 
+    }
+
+    @media ${device.mobileL} {
+        width: 100%;
+        height: 80%; 
+    }
+
+    @media ${device.mobileSS} {
+        height: 85%;
+    }
 `
 
 const Image = styled.img`
-    flex: 0.7;
     object-fit: cover;
+    width: 35%;
+
+    @media ${device.laptop} {
+        width: 30%;    
+    }
+
+    @media ${device.tablet} {
+        display: none;   
+    }
 `
 
 const InfoContainer = styled.div`
@@ -37,6 +74,15 @@ const InfoContainer = styled.div`
     height: 85%;
     align-self: center;
     background-color: #fdfdfd;
+
+    @media ${device.mobileL} {
+        height: 90%;   
+    }
+`
+const LogoWrapper = styled.div`
+    @media ${device.mobileSS} {
+        display: none;  
+    }
 `
 
 const Title = styled.h1`
@@ -44,6 +90,15 @@ const Title = styled.h1`
     font-weight: 600;
     margin-top: 1.5rem;
     color: #214646;
+
+    @media ${device.mobileS} {
+        margin-top: .5rem;   
+    }
+    @media ${device.mobileSS} {
+        font-size: 2.5rem;
+        margin-top: 0;
+    }
+
 `
 
 const Desc = styled.p`
@@ -67,32 +122,55 @@ const Form = styled.form`
     flex-direction: column;
     width: 60%;
     align-items: center;
+
+    @media ${device.laptop} {
+        width: 70%;    
+    }
+
+    @media ${device.mobileL} {
+        width: 90%;    
+    }
 `
 
 const InputField = styled.div`
-    border: 2px solid #c0c0c0;
-    border-radius: 5px;
+    border: 2px solid #d4d4d4;
+    border-radius: 1rem;
     overflow: hidden;
-    padding: 1rem 1rem;
+    padding: 1.2rem 1rem 1.2rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1rem;
     align-self: stretch;
+
+    @media ${device.desktopM} {
+        margin-bottom: .5rem;
+    }
+
+    @media ${device.laptop} {
+        margin-bottom: 1rem;
+    }
+
+    @media ${device.mobileS} {
+       margin-bottom: 0; 
+       padding: 1rem 1rem 1rem 1.5rem;
+    }
 `
+
 
 const Input = styled.input`
     border: none;
     margin-left: .5rem;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    
     &:focus {
         outline: none;
     }
-
 `
 const Icon = styled.span`
     display: inline-block;
     color: #929292;
+
 ` 
 
 const ButtonSignUp = styled.button`
@@ -106,6 +184,10 @@ const ButtonSignUp = styled.button`
     margin-top: 2rem;
     cursor: pointer;
     border: none;
+
+     @media ${device.mobileS} {
+        margin-top: 1rem;   
+    }
 `
 
 const Line = styled.span`
@@ -118,7 +200,12 @@ const Line = styled.span`
     border-bottom: 1px solid #b1b1b1;
     line-height: 0.1rem;
     margin: 2rem 0 2rem 0;
+
+    @media ${device.mobileS} {
+        margin: 1rem 0 1rem 0;
+    }
 `
+
 
 const LineText = styled.span`
     background-color: #fff;
@@ -147,16 +234,17 @@ const Register = () => {
             <Wrapper>
                 <Image src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixid=MnwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDF8fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60"></Image>
                 <InfoContainer>
-                    <Logo style={{height: '4rem', width: '4rem', borderRadius: '50%',}}/>
+                   <LogoWrapper> <Logo style={{height: '4rem', width: '4rem', borderRadius: '50%',}}/></LogoWrapper>
                     <Title>Create an account</Title>
                     <Desc>Already have an account? <Link>Sign in</Link></Desc>
                     <Form>
                         <InputField>
-                            <Input placeholder="Full name"/>
+                            <Input id="fullName" name="fullName" placeholder="Full name"/>
                             <Icon>
                                 <Person/>
                             </Icon>
                         </InputField>
+                        
                         <InputField>
                             <Input placeholder="Email" type="email"/>
                             <Icon><Mail/></Icon>

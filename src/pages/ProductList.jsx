@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Products from '../components/Products'
 import Newsletter from '../components/Newsletter'
 import Annoucement from '../components/Annoucement'
+import {device} from '../components/GlobalStyle'
 
 const Container = styled.div``
 const Title = styled.h1`
@@ -12,22 +13,34 @@ const Title = styled.h1`
     font-size: 4rem;
     font-weight: 400;
     text-align: center;
+
+     @media ${device.tablet} {
+        margin: 1rem;
+        font-size: 3.5rem;
+    }
 `
 
 const FilterContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media ${device.mobileL} {
+        flex-flow: row wrap;
+        flex: 1 0 50%;
+        padding: 0 1rem;
+    }
 `
 
-const Filter = styled.div`
-    margin: 2rem;
-`
 
 const FilterText = styled.span`
     font-size: 2rem;
     font-weight: 400;
     margin-right: 1.5rem;
+
+    @media ${device.laptopS} {
+        display: none;
+    }
 `
 
 const Select = styled.select`
@@ -36,6 +49,14 @@ const Select = styled.select`
     border: 2px solid #d8d8d8;
     border-radius: 5px;
     margin: 1rem;
+
+     @media ${device.tablet} {
+        padding: .8rem .5rem .8rem 1rem;
+    }
+
+    @media ${device.mobileL} {
+        flex: 1 0 40%;
+    }
 `
 const Option = styled.option``
 
@@ -57,7 +78,7 @@ const ProductList = () => {
                     </Select>
                 
                     <Select>
-                        <Option disabled selected>Loại</Option>
+                        <Option disabled selected>Loại sản phẩm</Option>
                         <Option>Tất cả</Option>
                         <Option>Giày thể thao</Option>
                         <Option>Sandal</Option>
@@ -66,11 +87,16 @@ const ProductList = () => {
               
                     
                     <Select>
-                        <Option disabled selected>Price</Option>
+                        <Option disabled selected>Theo giá</Option>
                         <Option>Từ thấp đến cao</Option>
                         <Option>Từ cao đến thấp</Option>
                     </Select>
                     
+                    <Select>
+                        <Option disabled selected>Theo đánh giá</Option>
+                        <Option>Từ thấp đến cao</Option>
+                        <Option>Từ cao đến thấp</Option>
+                    </Select>
                 
                
             </FilterContainer>

@@ -5,26 +5,18 @@ import Product from "./pages/Product"
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
-const GlobalStyle = createGlobalStyle`
-  html {
-    font-size: 62.5%;
-  }
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-`
+import GlobalStyle from "./components/GlobalStyle";
+
 const App = () => {
   return (
     <div>
       <GlobalStyle/>
       <Home/>
-      {/* <ProductList/> */}
-      {/* <Product/> */}
-      {/* <Register/> */}
-      {/* <Login/> */}
-      {/* <Cart/> */}
+      <ProductList/>
+      <Product/>
+       <Register/>
+      <Login/>
+      <Cart/>
     </div>
   );
 };

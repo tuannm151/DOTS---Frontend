@@ -1,6 +1,7 @@
 import { Send } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
+import {device} from './GlobalStyle'
 
 const Wrapper = styled.div`
     display: flex;
@@ -8,6 +9,10 @@ const Wrapper = styled.div`
     align-items: center;
     background-color: #f4fbff;
     padding: 5rem 0;
+    
+    @media ${device.mobileL} {
+        padding: 2.5rem 0;
+    }
 `
 
 const Container = styled.div`
@@ -19,10 +24,37 @@ const Container = styled.div`
     overflow: hidden;
     color: #020f4a;
     box-shadow: 2px 15px 22px -7px rgba(0,0,0,0.15);
+
+    @media ${device.desktopS} {
+        width: 80%;
+        height: 400px;
+    }
+    @media ${device.tablet} {
+        width: 85%;
+        height: 300px;
+    }
+    @media ${device.mobileL} {
+        width: 90%;
+        height: 250px;
+    }
+
+    @media ${device.mobile} {
+        width: 85%;
+        height: 300px;
+    }
+    
 `
 const Image = styled.img`
    width: max(270px, 40%);
    object-fit: cover;
+
+    @media ${device.desktopS} {
+        width: max(180px, 30%);
+    }
+
+    @media ${device.mobileL} {
+        display: none;
+    }
 `
 
 const Form = styled.div`
@@ -31,25 +63,70 @@ const Form = styled.div`
     justify-content: center;
     flex-direction: column;
     padding: 0 7rem 0 6rem;
+
+    @media ${device.desktopS} {
+        padding: 0 4rem 0 6rem;
+        align-items: center;
+        text-align: center;
+    }
+    @media ${device.laptop} {
+        align-items: start;
+        text-align: start;
+    }
+    @media ${device.tablet} {
+        padding: 0 3rem 0 3rem;
+        align-items: center;
+        text-align: center;
+    }
+    @media ${device.mobileL} {
+        padding: 0 2rem 0 2rem;
+    }
+    
 `
 
 const Heading = styled.h1`
     font-size: 5rem;
+
+     @media ${device.tablet} {
+        font-size: 4rem;
+    }
+    @media ${device.mobileL} {
+        font-size: 3.5rem;
+    }
+
+    @media ${device.mobileS} {
+        font-size: 3rem;
+    }
+    
 `
 
 const Desc = styled.p`
     font-size: 2rem;
     margin-top: 6rem;
+
+    @media ${device.tablet} {
+        margin-top: 3rem;
+        font-size: 1.7rem;
+    }
 `
 const InputWrapper = styled.div`
-    margin: 6rem auto 0 auto;
+    margin-top: 6rem;
     border-right: none;
     border-radius: 5rem;
-    width: 100%;
+    width: clamp(30rem, 90%, 50rem);
     display: flex;
-    justify-content: space-between;
     box-shadow: 2px 7px 22px -7px rgba(0,0,0,0.15);
     overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    @media ${device.desktopS} {
+        margin: 5rem 0 0 0;
+    }
+    @media ${device.tablet} {
+        width: 90%;
+    }
+    
+
 `
 const Input = styled.input`
     border: none;
@@ -57,23 +134,44 @@ const Input = styled.input`
     font-size: 1.7rem;
     padding: 1.5rem 3rem;
     flex: 1;
-    ::placeholder {
-
-    }
     &:focus {
         outline: none;
     }
+    @media ${device.desktopS} {
+        padding: 1rem 2rem;
+    }
+    @media ${device.tablet} {
+        width: 90%;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+    }
+    @media ${device.mobileS} {
+        font-size: 1.3rem;
+    }
+    
 `
 const Icon = styled.div`
     border-radius: 0% 49% 47% 52% / 0% 49% 51% 60%   ;
     background-color: teal;
-    padding: 1.5rem 1.7rem;
+    height: 4.5rem;
+    width: 4.5rem;
     color: #fff;
     cursor: pointer;
     z-index: 3;
     opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:hover {
         opacity: 1;
+    }
+    @media ${device.tablet} {
+        height: 4rem;
+        width: 4rem;
+    }
+    @media ${device.mobileS} {
+        height: 3rem;
+        width: 3rem;
     }
 `
 
@@ -86,7 +184,7 @@ const Newsletter = () => {
                 <Heading>STAY TUNED</Heading>
                 <Desc>Nhận email về các thông báo ưu đãi mới nhất đến từ chúng tôi!</Desc>  
                 <InputWrapper>
-                <Input placeholder="Your email. Eg: example@gmail.com"/>
+                <Input placeholder="Type your email"/>
                 <Icon>
                     <Send/>
                 </Icon>

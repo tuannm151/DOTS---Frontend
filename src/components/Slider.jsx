@@ -3,12 +3,30 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { sliderItems } from '../data'
+import {device} from './GlobalStyle'
+
 const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
     position: relative;
     overflow: hidden;
+    
+    @media ${device.desktopM} {
+        height: 95vh;
+    }
+
+    @media ${device.laptop} {
+        height: 80vh;
+    }
+
+    @media ${device.tablet} {
+        height: 60vh;
+    }
+
+    @media ${device.mobile} { 
+        height: 45vh;
+    }
 `
 const Arrow = styled.div`
     width: 50px;
@@ -38,7 +56,6 @@ const Wrapper = styled.div`
 `
 const Slide = styled.div`
     width: 100vw;
-    height: 100vh;
     display: flex;
     align-items: center;
     background: ${props => props.bg ? '#'+props.bg : 'linear-gradient(166deg, rgba(213,240,255,1) 21%, rgba(255,255,255,1) 44%, rgba(207,246,253,1) 88%)'};
@@ -49,11 +66,38 @@ const ImgContainer = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    
+    @media ${device.desktopM} {
+        object-fit: cover;
+        padding: 0 5rem;
+    }
+
+    @media ${device.tablet} {
+        padding: 0 3rem;
+    }
+    
 `
 const Image = styled.img`
-    height: 80%;
     border-radius: 15px;
     margin-top: 20px;
+    height: clamp(35rem, 60vw, 75vh);
+    
+
+    @media ${device.desktopM} {
+        object-fit: cover;
+        margin-top: 0;
+    }
+
+    @media ${device.tablet} {
+        height: clamp(20rem, 45vw, 75vh);
+    }
+
+    @media ${device.mobileS} {
+        height: 20rem;
+        width: 13rem;
+    }
+
 `
 const InfoContainer = styled.div`
     flex: 1;
@@ -62,11 +106,35 @@ const InfoContainer = styled.div`
     color: #3e4d55;
     margin-bottom: 50px;
     user-select: none;
+
+    @media ${device.tablet} {
+        padding: 3rem;
+        padding-left: 0;   
+        margin-bottom: 3rem;
+    }
+    @media ${device.mobileS} {
+        margin-bottom: 2rem;
+    }
 `
 
 
 const Title = styled.h1`
     font-size: 70px;
+
+    @media ${device.laptop} {
+        font-size: 5.8rem;
+    }
+    @media ${device.tablet} {
+        font-size: 3.5rem;
+    }
+
+     @media ${device.mobile} {
+        font-size: 2.5rem;
+    }
+
+    @media ${device.mobileS} {
+        font-size: 2rem;
+    }
 `
 const Decs = styled.p`
     margin: 50px 0px;
@@ -74,6 +142,21 @@ const Decs = styled.p`
     font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
+
+    @media ${device.tablet} {
+        margin: 2rem 0;
+        letter-spacing: 1px;
+        font-size: 1.7rem;
+    }
+    @media ${device.mobile} {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    @media ${device.mobileS} {
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
+
 `
 const Button = styled.button`
     border: 2px solid black;
@@ -82,6 +165,16 @@ const Button = styled.button`
     background-color: transparent;
     cursor: pointer;
     border-radius: 3px;
+
+    @media ${device.tablet} {
+        padding: .7rem 1.2rem;
+        font-size: 1.5rem;
+    }
+
+    @media ${device.mobileS} {
+        padding: .7rem .5rem;
+        font-size: 1.2rem;
+    }
 `
 
 const Slider = () => {

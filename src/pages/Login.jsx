@@ -3,6 +3,7 @@ import styled from "styled-components"
 import {ReactComponent as Logo} from "../img/logo.svg"
 import {ReactComponent as Facebook} from "../img/icons8-facebook-50.svg"
 import {ReactComponent as Google} from "../img/icons8-google-50.svg"
+import {device} from '../components/GlobalStyle'
 
 const Container = styled.div`
     width: 100vw;
@@ -12,6 +13,10 @@ const Container = styled.div`
     padding: 6rem;
     display: flex;
     justify-content: center;
+
+     @media ${device.mobileL} {
+        padding: 1.5rem 0;
+    }
 `
 
 const Wrapper = styled.div`
@@ -22,11 +27,42 @@ const Wrapper = styled.div`
     border-radius: 2rem;
     overflow: hidden;
     box-shadow: 0px 18px 54px 0px rgba(0,0,0,0.24);
+
+    
+    @media ${device.desktopM} {
+        width: 80%;   
+        height: 80%; 
+    }
+    @media ${device.desktopS} {
+        width: 85%;    
+    }
+
+    @media ${device.laptop} {
+        width: 90%;
+        height: min(70%, 60rem); 
+    }
+
+    @media ${device.mobileL} {
+        width: 100%;
+        height: 70%; 
+    }
+
+    @media ${device.mobileSS} {
+        height: 80%;
+    }
 `
 
 const Image = styled.img`
-    flex: 0.7;
+    width: 35%;
     object-fit: cover;
+
+     @media ${device.laptop} {
+        width: 30%;    
+    }
+
+    @media ${device.tablet} {
+        display: none;   
+    }
 `
 
 const InfoContainer = styled.div`
@@ -38,6 +74,15 @@ const InfoContainer = styled.div`
     height: 85%;
     align-self: center;
     background-color: #fdfdfd;
+
+    @media ${device.mobileL} {
+        height: 90%;   
+    }
+`
+const LogoWrapper = styled.div`
+    @media ${device.mobileSS} {
+        display: none;  
+    }
 `
 
 const Title = styled.h1`
@@ -45,6 +90,11 @@ const Title = styled.h1`
     font-weight: 600;
     margin-top: 1.5rem;
     color: #214646;
+
+     @media ${device.mobileS} {
+        margin-top: .5rem;   
+    }
+
 `
 
 const Desc = styled.p`
@@ -68,6 +118,14 @@ const Form = styled.form`
     width: 60%;
     align-items: center;
     margin-top: 2rem;
+
+    @media ${device.desktopS} {
+        width: 70%;    
+    }
+
+    @media ${device.mobileL} {
+        width: 90%;    
+    }
 `
 
 const InputField = styled.div`
@@ -80,6 +138,19 @@ const InputField = styled.div`
     justify-content: space-between;
     margin-top: 1rem;
     align-self: stretch;
+
+     @media ${device.desktopM} {
+        margin-bottom: .5rem;
+    }
+
+    @media ${device.laptop} {
+        margin-bottom: 1rem;
+    }
+
+    @media ${device.mobileS} {
+       margin-bottom: 0; 
+       padding: 1rem 1rem 1rem 1.5rem;
+    }
 `
 
 const Input = styled.input`
@@ -107,13 +178,17 @@ const ButtonSignUp = styled.button`
     margin-top: 1.5rem;
     cursor: pointer;
     border: none;
+
+     @media ${device.mobileS} {
+        margin-top: 1rem;   
+    }
 `
 const ForgotPasswordField = styled.span`
     font-size: 1.5rem;
     font-weight: 600;
     color: #b1b1b1;
     cursor: pointer;
-
+    margin-top: 1rem;
     &:hover {
         color: #d89d7b;
     }
@@ -129,6 +204,10 @@ const Line = styled.span`
     border-bottom: 1px solid #b1b1b1;
     line-height: 0.1rem;
     margin: 2rem 0 2rem 0;
+
+     @media ${device.mobileS} {
+        margin: 1rem 0 1rem 0;
+    }
 `
 
 const LineText = styled.span`
@@ -158,7 +237,7 @@ const Login = () => {
             <Wrapper>
                 <Image src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"></Image>
                 <InfoContainer>
-                    <Logo style={{height: '4rem', width: '4rem', borderRadius: '50%',}}/>
+                    <LogoWrapper><Logo style={{height: '4rem', width: '4rem', borderRadius: '50%',}}/></LogoWrapper>
                     <Title>Welcome back</Title>
                     <Desc>Don't have an account? <Link>Sign up</Link></Desc>
                     <Form>
