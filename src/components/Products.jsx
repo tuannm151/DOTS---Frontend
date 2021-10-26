@@ -23,7 +23,7 @@ const Container = styled.div`
     @media ${device.tablet} {
         padding: 2rem;
         grid-column-gap: 1.5rem;
-        grid-template-columns: repeat(auto-fit, minmax(23rem,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(24rem,1fr));
     }
     @media ${device.mobileL} {
         padding: 1rem;
@@ -33,7 +33,10 @@ const Container = styled.div`
     @media ${device.mobileS} {
         padding: 0;
         grid-column-gap: .5rem;
-        grid-template-columns: repeat(auto-fit, minmax(16rem,1fr));
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media ${device.mobileSS} {
+        grid-template-columns: 1fr;
     }
 `
 

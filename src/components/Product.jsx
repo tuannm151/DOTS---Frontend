@@ -1,4 +1,4 @@
-import { FavoriteBorder, ShoppingCart} from '@material-ui/icons'
+import { FavoriteBorder, ShoppingCart, Visibility} from '@material-ui/icons'
 import PrettyRating from "pretty-rating-react";
 import React from 'react'
 import styled from 'styled-components'
@@ -28,14 +28,14 @@ const starColors = {
 
 const Image = styled.img`
     width: 70%;
-    height: 60%;
+    height: 50%;
     object-fit: cover;
 
     @media ${device.mobileL} {
         width: 90%;
         height: 45%;
     }
-    @media ${device.mobileS} {
+    @media ${device.mobileSS} {
         height: 60%;
     }
 `
@@ -114,7 +114,6 @@ const Interaction = styled.div`
     overflow: hidden;
     transform: translateY(-2rem);
     transition: all .2s ease-in-out;
-
     @media ${device.tablet} {
         height: auto;
         transform: translateY(0);
@@ -152,6 +151,7 @@ const Button = styled.button`
         width: 95%;
         font-size: 1.3rem;
     }
+   
 `
 
 const Icon = styled.span`
@@ -220,6 +220,9 @@ const Wrapper = styled.div`
     @media ${device.tablet} {
         height: auto;
     }
+    @media ${device.mobileSS} {
+        height: 40rem;
+    }
 `
 
 const Product = ({item}) => {
@@ -245,9 +248,9 @@ const Product = ({item}) => {
            
                 <Button>
                     <Icon>
-                     <FavoriteBorder/>
+                     <Visibility/>
                     </Icon>
-                    <Text>Yêu thích</Text>
+                    <Text>Xem chi tiết</Text>
                 </Button>
             </Interaction>
 
