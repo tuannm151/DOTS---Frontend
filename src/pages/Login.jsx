@@ -95,6 +95,10 @@ const Title = styled.h1`
         margin-top: .5rem;   
     }
 
+    @media ${device.mobileL} {
+        font-size: 2.5rem;  
+    }
+
 `
 
 const Desc = styled.p`

@@ -91,13 +91,12 @@ const Heading = styled.h1`
         font-size: 4rem;
     }
     @media ${device.mobileL} {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     @media ${device.mobileS} {
-        font-size: 3rem;
+        font-size: 2.7rem;
     }
-    
 `
 
 const Desc = styled.p`

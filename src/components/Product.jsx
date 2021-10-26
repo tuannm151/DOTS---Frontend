@@ -182,6 +182,12 @@ const Container = styled.div`
         transform: translateY(-3rem);
         height: 40rem;
         scale: 1.1;
+
+        @media ${device.mobileL} {
+        height: 35rem;
+        scale: 1;
+        transform: translateY(-1.5rem);
+        }
     }
     &:hover ${Interaction} {
         /* display: flex; */
