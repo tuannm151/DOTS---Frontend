@@ -173,6 +173,7 @@ const Container = styled.div`
     cursor: pointer;
     transition: all .3s ease-out;
     height: 100%;
+
     &:hover {
         box-shadow: 0px 6px 34px -8px rgba(0,0,0,0.35);
         border-radius: 1rem;
@@ -182,7 +183,6 @@ const Container = styled.div`
         transform: translateY(-3rem);
         height: 40rem;
         scale: 1.1;
-
         @media ${device.mobileL} {
         height: 35rem;
         scale: 1;
@@ -193,6 +193,7 @@ const Container = styled.div`
         /* display: flex; */
         height: auto;
         transform: translateY(0);
+        overflow: visible;
     }
 
     @media ${device.desktopM} {
