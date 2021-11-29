@@ -16,7 +16,6 @@ const Wrapper = styled.div`
     }
 `
 
-
 const CardWrapper = styled.div`
     @media ${device.tablet} {
         width: 100%;
@@ -181,26 +180,21 @@ const Footer = () => {
             <List>
                 <ListItem href="https://github.com/zenkjiexs" target="_blank">
                     <Icon color="333"><GitHub/></Icon>
-                        
                         Github
                 </ListItem>
                 <ListItem>
                         <Icon color="bd2c00"><Email/></Icon>
                         tuanxsokoh@gmail.com
-                </ListItem>
-                <ListItem>
+                </ListItem >
+                <ListItem href="https://www.facebook.com" target="_blank">
                    <Icon color="4267B2">
                    <Facebook /></Icon>
-                        
                         Facebook
-                  
                 </ListItem>
-                <ListItem>
+                <ListItem href="https://twitter.com" target="_blank">
                     <Icon color="1DA1F2">
                     <Twitter /></Icon>
-                        
                         Twitter
-                
                 </ListItem >
     
                 

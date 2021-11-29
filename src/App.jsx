@@ -14,7 +14,7 @@ const App = () => {
       <Home/>
       <ProductList/>
       <Product/>
-       <Register/>
+      <Register/>
       <Login/>
       <Cart/>
     </div>
