@@ -19,7 +19,6 @@ const Title = styled.h1`
         font-size: 3.5rem;
     }
 `
-
 const FilterContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -31,8 +30,6 @@ const FilterContainer = styled.div`
         padding: 0 1rem;
     }
 `
-
-
 const FilterText = styled.span`
     font-size: 2rem;
     font-weight: 400;
@@ -42,7 +39,6 @@ const FilterText = styled.span`
         display: none;
     }
 `
-
 const Select = styled.select`
     background: transparent;
     padding: .8rem 1.5rem;
@@ -64,7 +60,6 @@ const ProductList = () => {
     return (
         <Container>
             <Navbar/>
-            <Annoucement/>
             <Title>Shoes</Title>
             <FilterContainer>
                     <FilterText>Lọc sản phẩm:</FilterText>
@@ -102,6 +97,7 @@ const ProductList = () => {
             </FilterContainer>
             <Products/>
             <Newsletter />
+            <Annoucement/>
             <Footer />
         </Container>
     )

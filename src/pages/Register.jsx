@@ -1,11 +1,10 @@
 import { Mail, Person, RemoveRedEye } from "@material-ui/icons"
 import styled from "styled-components"
 import {ReactComponent as Logo} from "../img/logo.svg"
+
 import {ReactComponent as Facebook} from "../img/icons8-facebook-50.svg"
 import {ReactComponent as Google} from "../img/icons8-google-50.svg"
 import {device} from '../components/GlobalStyle'
-
-
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
@@ -18,7 +17,6 @@ const Container = styled.div`
         padding: 1.5rem 0;
     }
 `
-
 const Wrapper = styled.div`
     display: flex;
     max-width: 930px;
@@ -51,7 +49,6 @@ const Wrapper = styled.div`
         height: 85%;
     }
 `
-
 const Image = styled.img`
     object-fit: cover;
     width: 35%;
@@ -64,7 +61,6 @@ const Image = styled.img`
         display: none;   
     }
 `
-
 const InfoContainer = styled.div`
     flex: 1;
     display: flex;
@@ -84,7 +80,6 @@ const LogoWrapper = styled.div`
         display: none;  
     }
 `
-
 const Title = styled.h1`
     font-size: 3rem;
     font-weight: 600;
@@ -102,7 +97,6 @@ const Title = styled.h1`
     }
 
 `
-
 const Desc = styled.p`
     margin-bottom: auto;
     font-size: 1.7rem;
@@ -110,12 +104,10 @@ const Desc = styled.p`
     color: #b1b1b1;
     margin-top: 1rem;
 `
-
 const Link = styled.span`
     color: #d89d7b;
     cursor: pointer;
 `
-
 const Form = styled.form`
     flex: 1;
     margin-top: 1.5rem;
@@ -133,7 +125,6 @@ const Form = styled.form`
         width: 90%;    
     }
 `
-
 const InputField = styled.div`
     border: 2px solid #d4d4d4;
     border-radius: 1rem;
@@ -158,8 +149,6 @@ const InputField = styled.div`
        padding: 1rem 1rem 1rem 1.5rem;
     }
 `
-
-
 const Input = styled.input`
     border: none;
     margin-left: .5rem;
@@ -174,7 +163,6 @@ const Icon = styled.span`
     color: #929292;
 
 ` 
-
 const ButtonSignUp = styled.button`
     padding: .7rem 0;
     background-color: #214646;
@@ -191,7 +179,6 @@ const ButtonSignUp = styled.button`
         margin-top: 1rem;   
     }
 `
-
 const Line = styled.span`
     display: block;
     align-self: center;
@@ -207,17 +194,13 @@ const Line = styled.span`
         margin: 1rem 0 1rem 0;
     }
 `
-
-
 const LineText = styled.span`
     background-color: #fff;
     padding: 0 1rem;
 `
-
 const ExternalSignUp = styled.div`
     display: flex;
 `
-
 const Button = styled.button`
     display: flex;
     align-items: center;
@@ -232,8 +215,10 @@ const Button = styled.button`
 
 const Register = () => {
     return (
+        
         <Container>
             <Wrapper>
+                {/* <Image src="https://res.cloudinary.com/dlyf81nhk/image/upload/v1638196027/DOTS%20-Web/DOTS_web_loogoArtboard_2_bffegc.jpg"> </Image> */}
                 <Image src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixid=MnwxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDF8fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60"></Image>
                 <InfoContainer>
                    <LogoWrapper> <Logo style={{height: '4rem', width: '4rem', borderRadius: '50%',}}/></LogoWrapper>

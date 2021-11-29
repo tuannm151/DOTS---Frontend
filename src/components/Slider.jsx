@@ -47,7 +47,6 @@ const Arrow = styled.div`
     opacity: 0.2;
     z-index:2;
 `
-
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
@@ -60,21 +59,21 @@ const Slide = styled.div`
     align-items: center;
     background: ${props => props.bg ? '#'+props.bg : 'linear-gradient(166deg, rgba(213,240,255,1) 21%, rgba(255,255,255,1) 44%, rgba(207,246,253,1) 88%)'};
 `
-
 const ImgContainer = styled.div`
-    flex: 0;
+    flex: 6;
     height: 100%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     
     @media ${device.desktopM} {
         object-fit: cover;
-        padding: 0 5rem;
+        padding: 0 0rem;
     }
 
     @media ${device.tablet} {
-        padding: 0 3rem;
+        padding: 0 0rem;
     }
     
 `
@@ -174,7 +173,6 @@ const Button = styled.button`
         font-size: 1.2rem;
     }
 `
-
 const Slider = () => {
     const [slideIdx, setSlideIdx] = useState(0);
     const handleClick = (direction) => {

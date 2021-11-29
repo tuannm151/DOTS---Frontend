@@ -2,7 +2,8 @@ import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
-import logo from '../img/logo.png'
+// import logo from '../img/logo.png'
+import logo from '../img/logo2.png'
 import {device} from './GlobalStyle'
 
 const Container = styled.div`
@@ -95,8 +96,8 @@ const Input = styled.input`
 `
 
 const Logo = styled.img`
-  height: 4rem;
-  width: 4rem;
+  height: 6rem;
+  width: 6rem;
   border-radius: 50%;
   cursor: pointer;
 
@@ -155,7 +156,7 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   cursor: pointer;
 `;
 

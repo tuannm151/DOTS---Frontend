@@ -1,7 +1,8 @@
 import { Email, Facebook, GitHub, Twitter } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../img/logo.png'
+// import logo from '../img/logo.png'
+import logo from '../img/logo2.png'
 import {device} from './GlobalStyle'
 const Wrapper = styled.div`
     width: 100%;
@@ -156,9 +157,9 @@ const Footer = () => {
             <Card>
                 <Title>Về chúng tôi</Title>
             <List>
+                <ListItem>Giới thiệu</ListItem>
                 <ListItem>Điều khoản dịch vụ</ListItem>
                 <ListItem>Liên hệ truyền thông</ListItem>
-                <ListItem>Giới thiệu</ListItem>
                 <ListItem>Tuyển dụng</ListItem>
             </List>
             </Card>
@@ -176,23 +177,23 @@ const Footer = () => {
 
             <CardWrapper>
             <Card>
-                <Title>Theo dõi chúng tôi trên</Title>
+                <Title>Theo dõi chúng tôi</Title>
             <List>
                 <ListItem href="https://github.com/zenkjiexs" target="_blank">
-                    <Icon color="333"><GitHub/></Icon>
+                    <Icon color="515151"><GitHub/></Icon>
                         Github
                 </ListItem>
                 <ListItem>
-                        <Icon color="bd2c00"><Email/></Icon>
-                        tuanxsokoh@gmail.com
+                    <Icon color="515151"><Email/></Icon>
+                        Gmail
                 </ListItem >
                 <ListItem href="https://www.facebook.com" target="_blank">
-                   <Icon color="4267B2">
+                   <Icon color="515151">
                    <Facebook /></Icon>
                         Facebook
                 </ListItem>
                 <ListItem href="https://twitter.com" target="_blank">
-                    <Icon color="1DA1F2">
+                    <Icon color="515151">
                     <Twitter /></Icon>
                         Twitter
                 </ListItem >

@@ -7,14 +7,14 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f4fbff;
+    // background-color: #f4fbff;
+    background-color: #ffffff;
     padding: 5rem 0;
     
     @media ${device.mobileL} {
         padding: 2.5rem 0;
     }
 `
-
 const Container = styled.div`
     width: 60%;
     display: flex;
@@ -56,7 +56,6 @@ const Image = styled.img`
         display: none;
     }
 `
-
 const Form = styled.div`
     flex: 1;
     display: flex;
@@ -83,7 +82,6 @@ const Form = styled.div`
     }
     
 `
-
 const Heading = styled.h1`
     font-size: 5rem;
 
@@ -98,7 +96,6 @@ const Heading = styled.h1`
         font-size: 2.7rem;
     }
 `
-
 const Desc = styled.p`
     font-size: 2rem;
     margin-top: 6rem;
@@ -173,7 +170,6 @@ const Icon = styled.div`
         width: 3rem;
     }
 `
-
 const Newsletter = () => {
     return (
         <Wrapper>
@@ -181,7 +177,7 @@ const Newsletter = () => {
             <Image src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80"/>
             <Form>
                 <Heading>STAY TUNED</Heading>
-                <Desc>Nhận email về các thông báo ưu đãi mới nhất đến từ chúng tôi!</Desc>  
+                <Desc>Điền email để nhận các thông báo ưu đãi mới nhất đến từ chúng tôi!</Desc>  
                 <InputWrapper>
                 <Input placeholder="Type your email"/>
                 <Icon>

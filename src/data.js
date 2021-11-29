@@ -1,25 +1,38 @@
 export const sliderItems = [
     {
       id: 1,
-      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638180465/DOTS%20-Web/CYANOPHYTE02_u8ixxc.png",
-      // img: "https://images.unsplash.com/photo-1588117305388-c2631a279f82?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80",
+      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638195492/DOTS%20-Web/Artboard_1_copy_3_gne97s.png",
       title: "BLACK FRIDAY",
       desc: "Bộ sưu tập mùa thu đặc biệt phiên bản giới hạn",
-    //   bg: "f5fafd",
+      bg: "ffffff",
     },
     {
       id: 2,
-      img: "https://images.unsplash.com/photo-1593010932917-92bd21088dee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638195479/DOTS%20-Web/Artboard_1_bnozqt.png",
       title: "BLACK FRIDAY",
       desc: "Giảm giá 20% toàn sàn! Thoả sức mua sắm.",
-      bg: "f0fffc",
+      bg: "ffffff",
     },
     {
       id: 3,
-      img: "https://images.unsplash.com/photo-1520904112886-14458bfd692e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638195483/DOTS%20-Web/Artboard_1_copy_2_ppjqnp.png",
       title: "EXPLORE YOURSELF",
       desc: "Thoải mái thể hiện cá tính bản thân.",
-      bg: "fffaf3",
+      bg: "ffffff",
+    },
+    {
+      id: 4,
+      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638195482/DOTS%20-Web/Artboard_1_copy_ydzoeg.png",
+      title: "EXPLORE YOURSELF",
+      desc: "Thoải mái thể hiện cá tính bản thân.",
+      bg: "ffffff",
+    },
+    {
+      id: 5,
+      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638195481/DOTS%20-Web/Artboard_1_copy_4_nuz2hz.png",
+      title: "EXPLORE YOURSELF",
+      desc: "Thoải mái thể hiện cá tính bản thân.",
+      bg: "ffffff",
     },
   ];
 
@@ -31,13 +44,11 @@ export const categories = [
     },
     {
       id: 2,
-      // img: "https://product.hstatic.net/1000230642/product/dpm031600xam_2e2a745e6aa64cbe8ea322b1fea88b1b_1024x1024.png",
       img: "https://images.unsplash.com/photo-1622831619806-ac62c4862163?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       title: "OFF-WHITE",
     },
     {
       id: 3,
-      // img: "https://product.hstatic.net/1000230642/product/dsmh03801xmn40_1__442a58fcbdbb49d2ba59bae48bed3d51_1024x1024.jpg",
       img: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/bd99793c-34c9-45d8-9842-935100c66d57/air-force-1-shadow-shoes-mN8Glx.png",
       title: "NIKE",
     },

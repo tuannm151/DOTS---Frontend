@@ -11,7 +11,6 @@ import {
 import {
   faStar as farStar,
 } from "@fortawesome/free-regular-svg-icons";
-
 const starIcons =  {
   star: {
     complete: faStar,
@@ -19,11 +18,9 @@ const starIcons =  {
     empty: farStar,
   },
 };
-
 const starColors = {
  star: ['#d9ad26', '#d9ad26', '#434b4d'],
 };
-
 const Image = styled.img`
     width: 70%;
     height: 50%;
@@ -37,7 +34,6 @@ const Image = styled.img`
         height: 60%;
     }
 `
-
 const Info = styled.div`
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -59,7 +55,6 @@ const Info = styled.div`
         padding: .5rem .5rem;
     }
 `
-
 const Title = styled.h1`
     grid-column: 1/-1;
     font-size: 1.8rem;
@@ -100,7 +95,6 @@ const Stars = styled.span`
         justify-self: start;
     }
 `
-
 const Interaction = styled.div`
     display: flex;
     flex-direction: column;
@@ -121,7 +115,6 @@ const Interaction = styled.div`
         margin-top: .5rem;
     }
 `
-
 const Button = styled.button`
     border: none;
     margin-bottom: 1rem;
@@ -150,7 +143,6 @@ const Button = styled.button`
     }
    
 `
-
 const Icon = styled.span`
     margin-right: 1rem;
 
@@ -160,7 +152,6 @@ const Icon = styled.span`
 `
 const Text = styled.span`
 `
-
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -221,7 +212,6 @@ const Wrapper = styled.div`
         height: 40rem;
     }
 `
-
 const Product = ({item}) => {
     return (
     <Wrapper>
@@ -255,5 +245,4 @@ const Product = ({item}) => {
     </Wrapper>
     )
 }
-
 export default Product

@@ -25,9 +25,7 @@ const starIcons =  {
 const starColors = {
  star: ['#d9ad26', '#d9ad26', '#434b4d'],
 };
-
 const Container =  styled.div`
-
 `
 const Wrapper = styled.div`
     display: flex;
@@ -52,7 +50,6 @@ const Wrapper = styled.div`
         padding: 1.5rem;
     }
 `
-
 const ImgContainer = styled.div`
     flex: 1;
     margin-left: 3rem;
@@ -67,7 +64,6 @@ const ImgContainer = styled.div`
         justify-content: center;
     }
 `
-
 const Image = styled.img`
     width: 95%;
     height: 90%;
@@ -88,7 +84,6 @@ const Image = styled.img`
         width: 100%;
     }
 `
-
 const InfoContainer = styled.div`
     flex: 1;
     padding: 2rem 6rem;
@@ -103,17 +98,15 @@ const InfoContainer = styled.div`
          padding: 1rem 1rem 0 1rem;
     }
 `
-
 const Category = styled.span`
     font-size: 1.5rem;
     color: #cacaca;
     font-weight: 450;
     letter-spacing: 1px;
 `
-
 const Title = styled.h1`
-    font-size: 3.5rem;
-    font-weight: 450;
+    font-size: 4rem;
+    font-weight: 550;
 
      @media ${device.laptop} {
         font-size: 3.5rem;
@@ -132,7 +125,6 @@ const Reviews = styled.div`
 const ReviewsText = styled.span`
     margin-left: 1.5rem;
 `
-
 const Price = styled.span`
     font-size: 3rem;
     margin-top: 3rem;
@@ -143,7 +135,6 @@ const Price = styled.span`
         margin-top: 1.5rem;
     }
 `
-
 const Desc = styled.p`
     margin-top: 2rem;
     font-size: 2rem;
@@ -171,24 +162,19 @@ const FormColor = styled.div`
     display: flex;
     align-items: center;
 `
-
 const FormTitle = styled.h2`
     font-size: 2rem;
     font-weight: 440;
     margin-right: 1.5rem;
 `
-
 const FormRadioGroup = styled.div`
     display: flex;
     height: 3rem;
 `
-
 const FormRadio = styled.div`
     position: relative;
     margin-right: 4rem;
 `
-
-
 const Radio = styled.span`
     width: 3rem;
     height: 3rem;
@@ -197,7 +183,6 @@ const Radio = styled.span`
     border: 1px solid #afafaf;
     position: absolute;
 `
-
 const InputRadio = styled.input`
     position: absolute;
     width: 3rem;
@@ -222,7 +207,6 @@ const FormSize = styled.div`
         margin-top: 1.5rem;
     }
 `
-
 const SizeSelect = styled.select`
     padding: .5rem;
     background: transparent;
@@ -234,9 +218,7 @@ const SizeSelect = styled.select`
         font-size: 1.5rem;
     }
 `
-
 const SizeOption = styled.option``
-
 const AddContainer = styled.div`
     display: flex;
     align-items: center;
@@ -261,14 +243,12 @@ const AmountContainer = styled.div`
     height: 100%;
       
 `
-
 const Amount = styled.span`
     border-left: 2px solid #2f504d;
     border-right: 2px solid #2f504d;
     padding: .6rem 2rem;
     display: inline-block;
 `
-
 const Button = styled.button`
     margin-left: 5rem;
     background: #2f504d;
@@ -290,12 +270,10 @@ const Button = styled.button`
         padding: .5rem 1rem;
     }
 `
-
 const Product = () => {
     return (
         <Container>
             <Navbar/>
-            <Annoucement/>
             <Wrapper>
                 <ImgContainer>
                     <Image src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/91b5317e-f381-40c5-8506-1330b776e53e/sb-zoom-blazer-mid-skate-shoe-bdtQ2K.png"/>
@@ -303,7 +281,7 @@ const Product = () => {
                 
                 <InfoContainer>
                      <Category>Nike</Category>
-                     <Title>Nike SB Zoom Blazer Mid Premium</Title> 
+                     <Title>Nike SB Zoom Blazer Premium</Title> 
                      <Reviews>
                         <PrettyRating value={4} icons={starIcons.star} colors={starColors.star} /> 
                         <ReviewsText>4.4 (4 reviews)</ReviewsText>    
@@ -362,6 +340,7 @@ const Product = () => {
                 </InfoContainer>
             </Wrapper>
             <Newsletter/>
+            <Annoucement/>      
             <Footer/>
         </Container>
     )

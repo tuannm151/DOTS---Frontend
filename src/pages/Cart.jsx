@@ -377,9 +377,7 @@ const SummaryContainer = styled.div`
 `
 
 const SummaryItemText = styled.span`
-
 `
-
 const SummaryPrice = styled.span``
 
 const OrderBtn = styled.button`
@@ -403,12 +401,10 @@ const OrderBtn = styled.button`
     } 
     
 `
-
 const Cart = () => {
     return (
         <Container>
             <Navbar/>
-            <Annoucement/>
             <Section>      
                 <CartContainer>
                <ItemsContainer>
@@ -588,6 +584,7 @@ const Cart = () => {
                 </CheckoutContainer>
                 </CartContainer>
             </Section>
+            <Annoucement/>
             <Footer/>
         </Container>
     )
