@@ -80,7 +80,7 @@ const ImgContainer = styled.div`
 const Image = styled.img`
     border-radius: 0px;
     margin-top: 0px;
-    height: clamp(35rem, 70vw, 100vh);
+    height: clamp(35rem, 60vw, 106vh);
     
 
     @media ${device.desktopM} {
