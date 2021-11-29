@@ -62,7 +62,7 @@ const Slide = styled.div`
 `
 
 const ImgContainer = styled.div`
-    flex: 1;
+    flex: 0;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -79,8 +79,8 @@ const ImgContainer = styled.div`
     
 `
 const Image = styled.img`
-    border-radius: 15px;
-    margin-top: 20px;
+    border-radius: 0px;
+    margin-top: 0px;
     height: clamp(35rem, 60vw, 75vh);
     
 
@@ -116,8 +116,6 @@ const InfoContainer = styled.div`
         margin-bottom: 2rem;
     }
 `
-
-
 const Title = styled.h1`
     font-size: 70px;
 
@@ -136,7 +134,7 @@ const Title = styled.h1`
         font-size: 2rem;
     }
 `
-const Decs = styled.p`
+const Desc = styled.p`
     margin: 50px 0px;
     font-size: 20px;
     font-weight: 500;
@@ -198,14 +196,15 @@ const Slider = () => {
             {sliderItems.map(item => (
 
             <Slide bg={item.bg} key={item.id}>
-            <ImgContainer>
-            <Image src={item.img}/>
-            </ImgContainer>
-            <InfoContainer>
-            <Title>{item.title}</Title>
-            <Decs>{item.desc}</Decs>
-            <Button>MUA NGAY</Button>
-            </InfoContainer>
+                <ImgContainer>
+                    <Image src={item.img}/>
+                </ImgContainer>
+                {/* đang để ẩn thông tin, chỉ để dạng ảnh */}
+                {/* <InfoContainer>
+                    <Title>{item.title}</Title>
+                    <Desc>{item.desc}</Desc>
+                    <Button>MUA NGAY</Button>
+                </InfoContainer> */}
             </Slide>
         ))}
            

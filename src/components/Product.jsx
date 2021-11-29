@@ -24,8 +24,6 @@ const starColors = {
  star: ['#d9ad26', '#d9ad26', '#434b4d'],
 };
 
-
-
 const Image = styled.img`
     width: 70%;
     height: 50%;
@@ -102,7 +100,6 @@ const Stars = styled.span`
         justify-self: start;
     }
 `
-
 
 const Interaction = styled.div`
     display: flex;

@@ -107,13 +107,13 @@ const InfoContainer = styled.div`
 const Category = styled.span`
     font-size: 1.5rem;
     color: #cacaca;
-    font-weight: 900;
+    font-weight: 450;
     letter-spacing: 1px;
 `
 
 const Title = styled.h1`
-    font-size: 4rem;
-    font-weight: 600;
+    font-size: 3.5rem;
+    font-weight: 450;
 
      @media ${device.laptop} {
         font-size: 3.5rem;
@@ -174,7 +174,7 @@ const FormColor = styled.div`
 
 const FormTitle = styled.h2`
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 440;
     margin-right: 1.5rem;
 `
 
@@ -302,14 +302,14 @@ const Product = () => {
                 </ImgContainer>
                 
                 <InfoContainer>
-                     <Category>Giày thể thao</Category>
-                     <Title>Nike Air Pro Max</Title> 
+                     <Category>Nike</Category>
+                     <Title>Nike SB Zoom Blazer Mid Premium</Title> 
                      <Reviews>
                         <PrettyRating value={4} icons={starIcons.star} colors={starColors.star} /> 
                         <ReviewsText>4.4 (4 reviews)</ReviewsText>    
                     </Reviews>  
-                    <Desc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, ipsa magni. Inventore ratione similique eaque aut, veniam in rerum! Fugit fugiat nesciunt et optio eius deleniti harum natus eum impedit.</Desc>
-                    <Price>3.250.000₫</Price>
+                    <Desc>Inspired by the community art spaces of Barcelona, the Nike SB Zoom Blazer Mid Premium is made from a collage of materials like suede, leather and canvas.The design is elevated with a multi-coloured "Nike" embroidery on the heel and a mismatched Swoosh, capped off by a contrasting herringbone sole.</Desc>
+                    <Price>3,089,000₫</Price>
 
                    <Form>
                         <FormColor>
