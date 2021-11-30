@@ -2,7 +2,6 @@ import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
-// import logo from '../img/logo.png'
 import logo from '../img/logo2.png'
 import {device} from './GlobalStyle'
 
@@ -15,7 +14,6 @@ const Container = styled.div`
     z-index: 3;
   }
 `;
-
 const Wrapper = styled.div`
   width: 100%;
   padding: 1rem 2rem;
@@ -31,7 +29,6 @@ const Wrapper = styled.div`
       flex-flow: row wrap;
   }
 `;
-
 const Language = styled.span`
   font-size: 1.5rem;
   cursor: pointer;
@@ -40,7 +37,6 @@ const Language = styled.span`
     display: none;
   }
 `;
-
 const InputWrapper = styled.div`
     margin-left: 2rem;
     border-radius: 5rem;
@@ -64,7 +60,6 @@ const InputWrapper = styled.div`
   }
   
 `
-
 const Icon = styled.div`
     cursor: pointer;
     opacity: 0.3;
@@ -94,10 +89,9 @@ const Input = styled.input`
     }
 
 `
-
 const Logo = styled.img`
-  height: 6rem;
-  width: 6rem;
+  height: 8rem;
+  width: 8rem;
   border-radius: 50%;
   cursor: pointer;
 
@@ -106,7 +100,6 @@ const Logo = styled.img`
     width: 3.2rem;
   }
 `;
-
 const Center = styled.div`
   flex: 1;
   display: flex;
@@ -135,7 +128,6 @@ const Left = styled.div`
       
   }
 `;
-
 const Right = styled.div`
   flex: 1;
   display: flex;
@@ -154,12 +146,10 @@ const Right = styled.div`
     padding-left: 8rem;
   }
 `;
-
 const MenuItem = styled.div`
   font-size: 1.6rem;
   cursor: pointer;
 `;
-
 const Navbar = () => {
   return (
     <Container>

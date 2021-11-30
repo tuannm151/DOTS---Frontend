@@ -1,7 +1,6 @@
 import { Email, Facebook, GitHub, Twitter } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
-// import logo from '../img/logo.png'
 import logo from '../img/logo2.png'
 import {device} from './GlobalStyle'
 const Wrapper = styled.div`
@@ -16,7 +15,6 @@ const Wrapper = styled.div`
         flex-flow: row wrap;
     }
 `
-
 const CardWrapper = styled.div`
     @media ${device.tablet} {
         width: 100%;
@@ -24,19 +22,14 @@ const CardWrapper = styled.div`
     @media ${device.mobileL} {
         width:90%;
     }
-
-     @media ${device.mobile} {
+    @media ${device.mobile} {
         width:100%;
     }
-   
 `
-
 const Card = styled.div`
     @media ${device.tablet} {
-        
     }
 `
-
 const Container = styled.div`
     display: grid;
     width: 100%;
@@ -64,18 +57,15 @@ const Container = styled.div`
     }
     
 `
-
 const Title = styled.h1`
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
 `
 const List = styled.div`
     font-size: 1.5rem;
     @media ${device.tablet} {
-        
     }
 `
-
 const ListItem = styled.a`
     margin-top: 1rem;
     cursor: pointer;
@@ -99,11 +89,10 @@ const Icon = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2rem;
-    height: 2rem;
+    width: 2.3rem;
+    height: 2.3rem;
     margin-right: 1rem;
 `
-
 const LogoWrapper = styled.div`
      @media ${device.tablet} {
        flex: 0.3;
@@ -115,15 +104,12 @@ const LogoWrapper = styled.div`
         display: none;
     }
 `
-
 const Logo = styled.img`
-    width: 7rem;
-    height: 7rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     margin-bottom: 1.5rem;
-
 `
-
 const Copyright = styled.p`
     font-size: 1.5rem;
     text-align: center;
@@ -132,7 +118,6 @@ const Copyright = styled.p`
         flex: 1 0 100%;
     }
 `
-
 const Footer = () => {
     return (
         <Wrapper>

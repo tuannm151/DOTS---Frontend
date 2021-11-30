@@ -1,21 +1,21 @@
 export const sliderItems = [
     {
       id: 1,
-      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638195492/DOTS%20-Web/Artboard_1_copy_3_gne97s.png",
+      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638262112/DOTS%20-Web/DOTS-webArtboard-1-copy-3_wtpx6w.png",
       title: "BLACK FRIDAY",
       desc: "Bộ sưu tập mùa thu đặc biệt phiên bản giới hạn",
       bg: "ffffff",
     },
     {
       id: 2,
-      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638195479/DOTS%20-Web/Artboard_1_bnozqt.png",
+      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638262116/DOTS%20-Web/DOTS-webArtboard-1-copy-4_gsactw.png",
       title: "BLACK FRIDAY",
       desc: "Giảm giá 20% toàn sàn! Thoả sức mua sắm.",
       bg: "ffffff",
     },
     {
       id: 3,
-      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638195483/DOTS%20-Web/Artboard_1_copy_2_ppjqnp.png",
+      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638262108/DOTS%20-Web/DOTS-webArtboard-1_ichswh.png",
       title: "EXPLORE YOURSELF",
       desc: "Thoải mái thể hiện cá tính bản thân.",
       bg: "ffffff",
@@ -29,7 +29,7 @@ export const sliderItems = [
     },
     {
       id: 5,
-      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638195481/DOTS%20-Web/Artboard_1_copy_4_nuz2hz.png",
+      img: "https://res.cloudinary.com/dlyf81nhk/image/upload/v1638262115/DOTS%20-Web/DOTS-webArtboard-1-copy-2_oxntrq.png",
       title: "EXPLORE YOURSELF",
       desc: "Thoải mái thể hiện cá tính bản thân.",
       bg: "ffffff",
