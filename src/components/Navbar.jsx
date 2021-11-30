@@ -6,7 +6,7 @@ import logo from '../img/logo2.png'
 import {device} from './GlobalStyle'
 
 const Container = styled.div`
-  height: 6rem;
+  height: 5rem;
   display: flex;
   
   @media ${device.tablet} {
@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 const Wrapper = styled.div`
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -157,7 +157,7 @@ const Navbar = () => {
         <Left>
           <Language>VN</Language>
           <InputWrapper>
-                <Input placeholder="Search..."/>
+                <Input placeholder="Tìm kiếm..."/>
                 <Icon>
                     <Search style={{fontSize: "2rem"}}/>
                 </Icon>

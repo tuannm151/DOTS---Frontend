@@ -7,7 +7,6 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: #f4fbff;
     background-color: #ffffff;
     padding: 5rem 0;
     
@@ -179,7 +178,7 @@ const Newsletter = () => {
                 <Heading>STAY TUNED</Heading>
                 <Desc>Điền email để nhận các thông báo ưu đãi mới nhất đến từ chúng tôi!</Desc>  
                 <InputWrapper>
-                <Input placeholder="Type your email"/>
+                <Input placeholder="Email của bạn..."/>
                 <Icon>
                     <Send/>
                 </Icon>
