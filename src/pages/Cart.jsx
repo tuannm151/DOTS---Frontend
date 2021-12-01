@@ -433,12 +433,12 @@ const SummaryPrice = styled.span``
 const OrderBtn = styled.button`
     /* margin-top: 2rem; */
     border: none;
-    background-color: #fed96a;
-    font-size: 2rem;
+    background-color: #a693d2;
+    font-size: 1.8rem;
     padding: 1rem 0;
     color: #000000;
-    width: 70%;
-    border-radius: 1rem;
+    width: 65%;
+    border-radius: 5rem;
     align-self: center;
     cursor: pointer;
     font-weight: 600;
@@ -458,7 +458,7 @@ const Cart = () => {
             <Section>      
                 <CartContainer>
                <ItemsContainer>
-                   <CartTitle>Giỏ hàng</CartTitle>
+                   <CartTitle>My Cart</CartTitle>
                 <CartItems>
                     <CartItem>
                         <Image src="https://product.hstatic.net/1000230642/product/dsc_0009_8d59ab2d1c20497cb3c51e0321f47a0b_1024x1024.jpg"/>

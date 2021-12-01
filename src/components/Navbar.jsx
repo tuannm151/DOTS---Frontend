@@ -29,7 +29,7 @@ const Wrapper = styled.div`
       flex-flow: row wrap;
   }
 `;
-const Language = styled.span`
+const Language = styled.option`
   font-size: 1.5rem;
   cursor: pointer;
 
@@ -146,16 +146,26 @@ const Right = styled.div`
     padding-left: 8rem;
   }
 `;
+
+const Select = styled.select`
+    padding: 0.5rem 0.5rem;
+    border: #ffffff;
+`;
 const MenuItem = styled.div`
   font-size: 1.6rem;
   cursor: pointer;
 `;
+
 const Navbar = () => {
   return (
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
+          <Select>
+            <Language >EN</Language>
+            <Language >VN</Language>
+          </Select>
+          
           <InputWrapper>
                 <Input placeholder="Search..."/>
                 <Icon>

@@ -90,13 +90,6 @@ const ProductList = () => {
                         <Option>Price: Low-High</Option>
                     </Select>
                     
-                    {/* <Select>
-                        <Option disabled selected>Theo đánh giá</Option>
-                        <Option>Từ thấp đến cao</Option>
-                        <Option>Từ cao đến thấp</Option>
-                    </Select> */}
-                
-               
             </FilterContainer>
             <Products/>
             <Newsletter />
@@ -107,39 +100,3 @@ const ProductList = () => {
 }
 
 export default ProductList
-{/* <FilterContainer>
-                    <FilterText>Lọc sản phẩm:</FilterText>
-                    <Select>
-                        <Option disabled selected>Brand</Option>
-                        <Option>All</Option>
-                        <Option>Ananas</Option>
-                        <Option>Balenciaga</Option>
-                        <Option>Bitis</Option>
-                        <Option>Nike</Option>
-                    </Select>
-                
-                    <Select>
-                        <Option disabled selected>Loại sản phẩm</Option>
-                        <Option>All</Option>
-                        <Option>Sport</Option>
-                        <Option>Fashion</Option>
-                        <Option>LifeStyle</Option>
-                    </Select>
-              
-                    
-                    <Select>
-                        <Option disabled selected>Sort By</Option>
-                        <Option>Freatured</Option>
-                        <Option>Newest</Option>
-                        <Option>Price: High-Low</Option>
-                        <Option>Price: Low-High</Option>
-                    </Select>
-                    
-                    <Select>
-                        <Option disabled selected>Theo đánh giá</Option>
-                        <Option>Từ thấp đến cao</Option>
-                        <Option>Từ cao đến thấp</Option>
-                    </Select>
-                
-               
-            </FilterContainer> */}

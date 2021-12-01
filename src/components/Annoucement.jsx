@@ -1,23 +1,36 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  // background-color: teal;
-  // background-color: #515151;
-  color: black;
+  color: gray;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 17px;
+  font-weight: 500px;
+  text-align: center;
+  padding: 3px 1rem;
+`
+const Applies = styled.div`
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
   font-weight: thin;
   text-align: center;
   padding: 3px 1rem;
-`;
+`
 
 const Annoucement = () => {
   return (
-    <Container>
-        Free shipping for orders over 500,000VND!
-    </Container>
+    <div>
+      <Container>
+          FREE DELIVERY
+      </Container>
+      <Applies>
+            Applies to orders of 5.000.000₫ or more.
+      </Applies>
+    </div>
   );
 };
 

@@ -211,7 +211,7 @@ const SizeSelect = styled.select`
     padding: .5rem;
     background: transparent;
     border: 2px solid #b1b1b1;
-    border-radius: 3px;
+    border-radius: 8px;
     font-size: 1.7rem;
 
      @media ${device.laptop} {
@@ -226,6 +226,8 @@ const AddContainer = styled.div`
     font-size: 2rem;
     height: 5rem;
 
+    
+
     @media ${device.laptop} {
         margin-top: 2.5rem;
         font-size: 1.8rem;
@@ -235,11 +237,12 @@ const AddContainer = styled.div`
 const AmountContainer = styled.div`
     display: flex;
     align-items: center;
-    font-weight: 700;
-    width: 15rem;
+    font-weight: 600;
+    width: 13rem;
     border: 2px solid #2f504d;
+    border-radius: 5px;
     justify-content: space-evenly;
-    border-radius: 3px;
+    border-radius: 8px;
     height: 100%;
       
 `
@@ -255,11 +258,11 @@ const Button = styled.button`
     border: none;
     color: #fff;
     padding: .5rem 2rem;
-    font-weight: 600;
-    height: 100%;
-    width: 15rem;
+    font-weight: 550;
+    height: 90%;
+    width: 14rem;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 13px;
     font-size: 1.8rem;
      @media ${device.laptop} {
         font-size: 1.8rem;
