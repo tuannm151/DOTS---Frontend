@@ -16,7 +16,7 @@ const Container = styled.div`
 const Annoucement = () => {
   return (
     <Container>
-        Miễn phí vận chuyển cho đơn hàng trên 500.000đ !
+        Free shipping for orders over 500,000VND!
     </Container>
   );
 };

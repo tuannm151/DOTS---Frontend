@@ -230,14 +230,14 @@ const Product = ({item}) => {
                     <Icon>
                      <ShoppingCart/>
                     </Icon>
-                    <Text>Thêm vào giỏ hàng</Text>
+                    <Text>Add to Cart</Text>
                 </Button>
            
                 <Button>
                     <Icon>
                      <Visibility/>
                     </Icon>
-                    <Text>Xem chi tiết</Text>
+                    <Text>View Details</Text>
                 </Button>
             </Interaction>
 

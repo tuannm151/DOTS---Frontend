@@ -128,41 +128,41 @@ const Footer = () => {
         <Container>
             <CardWrapper>
             <Card>
-                <Title>Chăm sóc khách hàng</Title>
+                <Title>GET HELP</Title>
             <List>
-                <ListItem>Trung tâm trợ giúp</ListItem>
-                <ListItem>Hướng dẫn mua hàng</ListItem>
-                <ListItem>Trả hàng, hoàn tiền</ListItem>
-                <ListItem>Chính sách bảo hành</ListItem>
+                <ListItem>Order Status</ListItem>
+                <ListItem>Delivery</ListItem>
+                <ListItem>Returns</ListItem>
+                <ListItem>Payment Options</ListItem>
             </List>
             </Card>
             </CardWrapper>
 
             <CardWrapper>
             <Card>
-                <Title>Về chúng tôi</Title>
+                <Title>ABOUT US</Title>
             <List>
-                <ListItem>Giới thiệu</ListItem>
-                <ListItem>Điều khoản dịch vụ</ListItem>
-                <ListItem>Liên hệ truyền thông</ListItem>
-                <ListItem>Tuyển dụng</ListItem>
+                <ListItem>News</ListItem>
+                <ListItem>Careers</ListItem>
+                <ListItem>Investors</ListItem>
+                <ListItem>Sustainability</ListItem>
             </List>
             </Card>
             </CardWrapper>
             <CardWrapper>
             <Card>
-                <Title>Về vận chuyển</Title>
+                <Title>MORE</Title>
             <List>
-                <ListItem>Phương thức vận chuyển</ListItem>
-                <ListItem>Chi phí vận chuyển</ListItem>
-                <ListItem>Đăng kí dịch vụ</ListItem>
+                <ListItem>FIND A STORE</ListItem>
+                <ListItem>BECOME A MEMBER</ListItem>
+                <ListItem>SEND US FEEDBACK</ListItem>
             </List>
             </Card>
             </CardWrapper>
 
             <CardWrapper>
             <Card>
-                <Title>Theo dõi chúng tôi</Title>
+                <Title>FOLLOWS US</Title>
             <List>
                 <ListItem href="https://github.com/zenkjiexs" target="_blank">
                     <Icon color="515151"><GitHub/></Icon>
@@ -188,7 +188,7 @@ const Footer = () => {
             </Card>
             </CardWrapper>
         </Container>
-        <Copyright>© 2021 All Rights Reserved</Copyright>
+        <Copyright>©2021 All Rights Reserved</Copyright>
         </Wrapper>
     )
 }

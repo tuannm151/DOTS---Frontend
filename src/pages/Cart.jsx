@@ -549,13 +549,13 @@ const Cart = () => {
                     
                     <CheckoutCard>
                         <CheckoutHeader>
-                            <CheckoutTitle>Thanh toán</CheckoutTitle>
+                            <CheckoutTitle>Payment Options</CheckoutTitle>
                             <Btn><Edit style={{fontSize:'1.5rem' }}/></Btn>
                         </CheckoutHeader>
                         <CheckoutInfo>
                             <Payment style={{fontSize:'2rem', color:'#a693d2'}}/>
                             <CheckoutInfoText>
-                                Thanh toán với ví Momo
+                            Payment by Momo
                             </CheckoutInfoText>
                         </CheckoutInfo>
                         <EndLine></EndLine>
@@ -571,7 +571,7 @@ const Cart = () => {
                                     <SummaryPrice>Free</SummaryPrice>
                                 </SummaryItem>
                                 <SummaryItem type='total'>
-                                    <SummaryItemText >Thanh toán</SummaryItemText>
+                                    <SummaryItemText >Total</SummaryItemText>
                                     <SummaryPrice>3.250.000₫</SummaryPrice>
                                 </SummaryItem>
                                 <EndLine></EndLine>

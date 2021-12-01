@@ -96,7 +96,7 @@ const Heading = styled.h1`
     }
 `
 const Desc = styled.p`
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-top: 6rem;
 
     @media ${device.tablet} {
@@ -176,9 +176,9 @@ const Newsletter = () => {
             <Image src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80"/>
             <Form>
                 <Heading>STAY TUNED</Heading>
-                <Desc>Điền email để nhận các thông báo ưu đãi mới nhất đến từ chúng tôi!</Desc>  
+                <Desc>Sign in and be the first in the know about new arrivals, promotions, instore evens and more!</Desc>  
                 <InputWrapper>
-                <Input placeholder="Email của bạn..."/>
+                <Input placeholder="Type your email..."/>
                 <Icon>
                     <Send/>
                 </Icon>

@@ -155,9 +155,9 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>VN</Language>
+          <Language>EN</Language>
           <InputWrapper>
-                <Input placeholder="Tìm kiếm..."/>
+                <Input placeholder="Search..."/>
                 <Icon>
                     <Search style={{fontSize: "2rem"}}/>
                 </Icon>
@@ -168,8 +168,8 @@ const Navbar = () => {
           <Logo src={logo} />
         </Center>
         <Right>
-          <MenuItem>Đăng ký</MenuItem>
-          <MenuItem>Đăng nhập</MenuItem>
+          <MenuItem>Sign Up</MenuItem>
+          <MenuItem>Sign In</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlined style={{fontSize: "2rem"}}/>

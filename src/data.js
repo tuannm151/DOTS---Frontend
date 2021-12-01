@@ -88,14 +88,14 @@ export const categories = [
       img: "https://product.hstatic.net/1000230642/product/bitis_hunter_ht_8.1719w_copy_ef53ac8a250342b096b9474c0412eff7_1024x1024.jpg",
       price: "1,699,000 ₫",
       stars: 4.6,
-      name: 'Bitis Hunter (Đỏ Đô)',
+      name: 'Bitis Hunter (RED)',
     },
     {
       id:6,
       img: "https://product.hstatic.net/1000230642/product/8-01_c54b122ba47a49478c384998026e1c3d_1024x1024.jpg",
       price: "915,000 ₫",
       stars: 4.6,
-      name: 'Bitis Hunter (Xanh Ngọc)',
+      name: 'Bitis Hunter (Green)',
     },
     {
       id:7,
