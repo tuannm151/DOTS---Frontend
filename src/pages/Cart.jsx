@@ -9,7 +9,12 @@ import {device} from '../components/GlobalStyle'
 const Container = styled.div`
     
 `
-
+const userUpdateItem = styled.div`
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+`
 const Section = styled.div`
     background-color: #fff;
     width: 100%;
@@ -375,7 +380,52 @@ const SummaryContainer = styled.div`
         margin-bottom: 0;
     }
 `
+const InputField = styled.div`
+    border: 1px solid #d4d4d4;
+    border-radius: 2rem;
+    overflow: hidden;
+    padding: 1.2rem 1rem 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    align-self: stretch;
 
+    @media ${device.desktopM} {
+        margin-bottom: .5rem;
+    }
+
+    @media ${device.laptop} {
+        margin-bottom: 1rem;
+    }
+
+    @media ${device.mobileS} {
+       margin-bottom: 0; 
+       padding: 1rem 1rem 1rem 1.5rem;
+    }
+`
+const Input = styled.input`
+    border: none;
+    margin-left: 0.1rem;
+    font-size: 1.7rem;
+    background: none;
+
+    &:focus {
+        outline: none;
+    }
+    @media ${device.desktopS} {
+        padding: 1rem 2rem;
+    }
+    @media ${device.tablet} {
+        width: 90%;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+    }
+    @media ${device.mobileS} {
+        font-size: 1.3rem;
+    }
+    
+`
 const SummaryItemText = styled.span`
 `
 const SummaryPrice = styled.span``
@@ -519,8 +569,6 @@ const Cart = () => {
                         </CheckoutInfo>
                     </CheckoutCard>
 
-                    
-
                     <CheckoutCard>
                         <CheckoutHeader>
                             <CheckoutTitle>Shipping</CheckoutTitle>
@@ -529,23 +577,28 @@ const Cart = () => {
                         <CheckoutInfo>
                             <PersonOutline style={{fontSize:'2rem', color:'#a693d2'}}/>
                             <CheckoutInfoText>
-                                Nguyễn Minh Tuân
+                            <InputField>
+                                <Input placeholder="Name"/>
+                            </InputField>
                             </CheckoutInfoText>
                         </CheckoutInfo>
                         <CheckoutInfo>
                             <LocationOnOutlined style={{fontSize:'2rem', color:'#a693d2'}}/>
-                            <CheckoutInfoText>
-                                1337 Wall Street, New York City, Đông Triều, Quảng Ninh
-                            </CheckoutInfoText>
+                            <InputField>
+                                <Input placeholder="Address"/>
+                            </InputField>
+                                        
+                                    
                         </CheckoutInfo>
                         <CheckoutInfo>
                             <PhoneOutlined style={{fontSize:'2rem', color:'#a693d2'}}/>
                             <CheckoutInfoText>
-                                09432464424
+                            <InputField>
+                                <Input placeholder="Phone"/>
+                            </InputField>
                             </CheckoutInfoText>
                         </CheckoutInfo>
                     </CheckoutCard>
-
                     
                     <CheckoutCard>
                         <CheckoutHeader>
