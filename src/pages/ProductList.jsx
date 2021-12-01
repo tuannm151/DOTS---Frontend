@@ -31,8 +31,8 @@ const FilterContainer = styled.div`
     }
 `
 const FilterText = styled.span`
-    font-size: 2rem;
-    font-weight: 400;
+    font-size: 2.5rem;
+    font-weight: 500;
     margin-right: 1.5rem;
 
     @media ${device.laptopS} {
@@ -62,36 +62,39 @@ const ProductList = () => {
             <Navbar/>
             <Title>Shoes</Title>
             <FilterContainer>
-                    <FilterText>Lọc sản phẩm:</FilterText>
+                    <FilterText>Filter:</FilterText>
                     <Select>
-                        <Option disabled selected>Thương hiệu</Option>
-                        <Option>Tất cả</Option>
-                        <Option>Nike</Option>
-                        <Option>Adidas</Option>
+                        <Option disabled selected>Brand</Option>
+                        <Option>All</Option>
+                        <Option>Ananas</Option>
                         <Option>Balenciaga</Option>
                         <Option>Bitis</Option>
+                        <Option>Nike</Option>
                     </Select>
                 
                     <Select>
-                        <Option disabled selected>Loại sản phẩm</Option>
-                        <Option>Tất cả</Option>
-                        <Option>Giày thể thao</Option>
-                        <Option>Sandal</Option>
-                        <Option>Dép</Option>
+                        <Option disabled selected>Shoes</Option>
+                        <Option>All</Option>
+                        <Option>Sport</Option>
+                        <Option>Fashion</Option>
+                        <Option>LifeStyle</Option>
                     </Select>
               
                     
                     <Select>
-                        <Option disabled selected>Theo giá</Option>
-                        <Option>Từ thấp đến cao</Option>
-                        <Option>Từ cao đến thấp</Option>
+                        <Option disabled selected>Sort By</Option>
+                        <Option>All</Option>
+                        <Option>Freatured</Option>
+                        <Option>Newest</Option>
+                        <Option>Price: High-Low</Option>
+                        <Option>Price: Low-High</Option>
                     </Select>
                     
-                    <Select>
+                    {/* <Select>
                         <Option disabled selected>Theo đánh giá</Option>
                         <Option>Từ thấp đến cao</Option>
                         <Option>Từ cao đến thấp</Option>
-                    </Select>
+                    </Select> */}
                 
                
             </FilterContainer>
@@ -104,3 +107,39 @@ const ProductList = () => {
 }
 
 export default ProductList
+{/* <FilterContainer>
+                    <FilterText>Lọc sản phẩm:</FilterText>
+                    <Select>
+                        <Option disabled selected>Brand</Option>
+                        <Option>All</Option>
+                        <Option>Ananas</Option>
+                        <Option>Balenciaga</Option>
+                        <Option>Bitis</Option>
+                        <Option>Nike</Option>
+                    </Select>
+                
+                    <Select>
+                        <Option disabled selected>Loại sản phẩm</Option>
+                        <Option>All</Option>
+                        <Option>Sport</Option>
+                        <Option>Fashion</Option>
+                        <Option>LifeStyle</Option>
+                    </Select>
+              
+                    
+                    <Select>
+                        <Option disabled selected>Sort By</Option>
+                        <Option>Freatured</Option>
+                        <Option>Newest</Option>
+                        <Option>Price: High-Low</Option>
+                        <Option>Price: Low-High</Option>
+                    </Select>
+                    
+                    <Select>
+                        <Option disabled selected>Theo đánh giá</Option>
+                        <Option>Từ thấp đến cao</Option>
+                        <Option>Từ cao đến thấp</Option>
+                    </Select>
+                
+               
+            </FilterContainer> */}

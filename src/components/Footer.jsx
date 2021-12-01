@@ -153,7 +153,8 @@ const Footer = () => {
             <Card>
                 <Title>MORE</Title>
             <List>
-                <ListItem>FIND A STORE</ListItem>
+                <ListItem href = "https://www.google.com/maps" target="_blank">
+                    FIND A STORE</ListItem>
                 <ListItem>BECOME A MEMBER</ListItem>
                 <ListItem>SEND US FEEDBACK</ListItem>
             </List>
