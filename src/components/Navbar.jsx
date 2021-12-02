@@ -1,10 +1,12 @@
-import { Badge } from "@material-ui/core";
+import { Badge, makeStyles } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from '../img/logo.png'
-import {device} from './GlobalStyle'
-
+import {device} from '../utils/GlobalStyle'
+import {useSelector, useDispatch} from "react-redux"
+import {useHistory} from "react-router-dom"
 const Container = styled.div`
   height: 6rem;
   display: flex;
@@ -159,7 +161,28 @@ const MenuItem = styled.div`
   cursor: pointer;
 `;
 
+const useStyles = makeStyles((theme) => ({
+  badge: {
+    fontSize: 11
+  }
+}));
+
+
 const Navbar = () => {
+  const quantity = useSelector(state=>state.cart.quantity);
+  const username = useSelector(state=>state.user.currentUser?.userName);
+  const classes = useStyles();
+
+   const history = useHistory();
+     const routeChangeRegister = () =>{ 
+     const path = `/register`;
+        history.push(path);
+    }
+    const routeChangeLogin = () =>{ 
+     const path = `/login`;
+        history.push(path);
+    }
+
   return (
     <Container>
       <Wrapper>
@@ -172,18 +195,24 @@ const Navbar = () => {
                 </Icon>
           </InputWrapper>
         </Left>
-        <Center>  
-          
+        <Center> 
+          <Link to={`/`}>
           <Logo src={logo} />
+          </Link>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>LOGIN</MenuItem>
-          <MenuItem>
-            <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined style={{fontSize: "2rem"}}/>
+          {username ? <MenuItem>{username}</MenuItem>: ""}
+
+          {!username && <MenuItem onClick={routeChangeRegister}>REGISTER</MenuItem>}
+          {!username && <MenuItem onClick={routeChangeLogin}>LOGIN</MenuItem>}
+          
+          <Link to="/cart">
+          <MenuItem >
+            <Badge badgeContent={quantity} color="primary" classes={{ badge: classes.badge }}>
+              <ShoppingCartOutlined style={{fontSize: 20}}/>
             </Badge>
           </MenuItem>
+          </Link>
         </Right>
       </Wrapper>
     </Container>

@@ -1,13 +1,15 @@
 import { Add, Close, Delete, DeleteForeverOutlined, DeleteOutlined, Edit, EmailOutlined, HighlightOffOutlined, LocationOnOutlined, Payment, PersonOutline, PhoneOutlined, Remove } from '@material-ui/icons'
-import React from 'react'
+import {React, useState, useEffect} from 'react'
 import styled from 'styled-components'
 import Annoucement from '../components/Annoucement'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import {device} from '../components/GlobalStyle'
-
-const Container = styled.div`
-    
+import {device} from '../utils/GlobalStyle'
+import { formatCurrencies, userRequest } from '../utils/utils'
+import { addProduct , saveProduct} from '../redux/cartRedux'
+import {useSelector, useDispatch} from "react-redux"
+import Swal from 'sweetalert2'
+const Container = styled.div` 
 `
 
 const Section = styled.div`
@@ -338,7 +340,7 @@ const CheckoutHeader = styled.div`
 
 const CheckoutTitle = styled.h2`
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 500;
     
 `
 
@@ -393,7 +395,7 @@ const OrderBtn = styled.button`
     border-radius: 1rem;
     align-self: center;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 400;
     @media ${device.desktopS} {
        font-size: 1.8rem;
     } 
@@ -405,6 +407,82 @@ const OrderBtn = styled.button`
 `
 
 const Cart = () => {
+    const [cartItems, setCartItems] = useState([]);
+    const [price, setPrice] = useState(0)
+    
+    const customerId =  useSelector(state=>state.user.currentUser.customers[0].id);
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const res = await userRequest.get('/cart/list')
+                setCartItems(res.data.cartItemsDto);
+                setPrice(res.data.totalPrice)
+            } catch (err){
+                console.log(err)
+            }
+        }
+        getData();
+    },[])
+
+    
+    const handleDelete = (product) => {
+        setPrice(price - product.quantity * product.responseProductDto.unitPrice);
+        setCartItems(cartItems.filter(item => item.cartItemId !== product.cartItemId));
+        userRequest.delete(`/cart/delete/${product.cartItemId}`).then((res) =>{
+            console.log(res)
+        }, (err) => console.error(err));
+    }
+
+    const handlePlaceOrder = async () => {
+        try {
+            if(!cartItems.length) throw Error('No cart items found');
+            const promises = cartItems.filter(cartItem => cartItem.modified === true).map(cartItem => {
+                return userRequest.post('/cart/update', {
+                    cartItemId: cartItem.cartItemId,
+                    quantity: cartItem.quantity
+                });
+            });
+            Promise.all(promises).then((res) => {
+                console.log(res)
+            }).catch((err) => {
+                 Swal.fire({
+                    icon: 'error',
+                    title: err.message,
+                })
+            });
+            const res = await userRequest.post('/order/place',{
+                customerId,
+                paymentType: 'INCASH'
+            })
+            Swal.fire({
+                icon: 'success',
+                title: "Order placed successfully",
+            })
+            setCartItems([]);
+        } catch(err) {
+            Swal.fire({
+                icon: 'warning',
+                title: err.message,
+                text: 'Add a product to your cart'
+            })
+        }
+    }
+
+    const handleChangeQuantity = (product, type) => {
+        if(type === 'add') {
+            product.quantity += 1;
+            product.modified = true;
+            setPrice(price + product.responseProductDto.unitPrice);
+            setCartItems(cartItems.filter(item => item.cartItemId === product.cartItemId ? product: item));
+        } else if(type === 'remove') {
+            if(product.quantity === 1) return;
+            product.quantity -= 1;
+            product.modified = true;
+            setPrice(price - product.responseProductDto.unitPrice);
+            setCartItems(cartItems.filter(item => item.cartItemId === product.cartItemId ? product : item));
+        }
+    }
+
     return (
         <Container>
             <Navbar/>
@@ -412,105 +490,44 @@ const Cart = () => {
             <Section>      
                 <CartContainer>
                <ItemsContainer>
-                   <CartTitle>Giỏ hàng</CartTitle>
+                   <CartTitle>Your cart: ({cartItems.length} {cartItems.length!==1 ? 'items' : 'item'})</CartTitle>
                 <CartItems>
-                    <CartItem>
-                        <Image src="https://product.hstatic.net/1000230642/product/dsc_0009_8d59ab2d1c20497cb3c51e0321f47a0b_1024x1024.jpg"/>
+                   {cartItems?.map(product=>( <CartItem key={product.cartItemId}>
+                        <Image src={product.responseProductDto.imageUrl}/>
                         <ItemInfo>
-                            <ItemTitle>Nike Air Pro Max</ItemTitle>
+                            <ItemTitle>{product.responseProductDto.productName}</ItemTitle>
                             <Info>
                                 <InfoTitle>Color:</InfoTitle>
-                                <Color color="white"></Color>
-                                <InfoText>(white)</InfoText>
+                                <Color color={product.color}></Color>
+                                <InfoText>({product.color})</InfoText>
                             </Info>
                             <Info>
                                 <InfoTitle>Size:</InfoTitle>
-                                <InfoText>42</InfoText>
+                                <InfoText>{product.size}</InfoText>
                             </Info>
                         </ItemInfo> 
                         <Right>
                             <AmountContainer>
-                                <Btn type='amount'>
-                                    <Remove style={{cursor: 'pointer', fontSize:'2rem'}}/>
+                                <Btn type='amount' onClick={() => handleChangeQuantity(product, 'remove')}>
+                                    <Remove style={{cursor: 'pointer', fontSize:'2rem'} }/>
                                 </Btn>
-                                <Amount>1</Amount>
-                                <Btn type='amount'>
+                                <Amount>{product.quantity}</Amount>
+                                <Btn type='amount' onClick={() => handleChangeQuantity(product, 'add')}>
                                     <Add style={{cursor: 'pointer', fontSize:'2rem'}}/>
                                 </Btn>
                             </AmountContainer>
-                            <Price>3.250.000₫</Price>
-                            <BtnDelete>
+                            <Price>{formatCurrencies(product.responseProductDto.unitPrice*product.quantity)}</Price>
+                            <BtnDelete onClick={() => handleDelete(product)}>
                                 <Close style={{fontSize:'2.2rem'}}/>
                             </BtnDelete>
                         </Right>
-                    </CartItem>
-                     <CartItem>
-                        <Image src="https://healthvietnam.vn/photos/shares/bietduoc3/levo%20Danapha%20HVN.jpg"/>
-                        <ItemInfo>
-                            <ItemTitle>Thuốc an thần</ItemTitle>
-                            <Info>
-                                <InfoTitle>Color:</InfoTitle>
-                                <Color color="white"></Color>
-                                <InfoText>(white)</InfoText>
-                                
-                            </Info>
-                            <Info>
-                                <InfoTitle>Size:</InfoTitle>
-                                <InfoText>50 viên</InfoText>
-                            </Info>
-                        </ItemInfo> 
-                        <Right>
-                            <AmountContainer>
-                                <Btn type='amount'>
-                                    <Remove style={{cursor: 'pointer', fontSize:'2rem'}}/>
-                                </Btn>
-                                <Amount>99</Amount>
-                                <Btn type='amount'>
-                                    <Add style={{cursor: 'pointer', fontSize:'2rem'}}/>
-                                </Btn>
-                            </AmountContainer>
-                            <Price>0₫</Price>
-                            <BtnDelete>
-                                <Close style={{fontSize:'2.2rem' }}/>
-                            </BtnDelete>
-                        </Right>
-                    </CartItem>
-
-                     <CartItem>
-                        <Image src="https://healthvietnam.vn/photos/shares/bietduoc3/levo%20Danapha%20HVN.jpg"/>
-                        <ItemInfo>
-                            <ItemTitle>Thuốc an thần</ItemTitle>
-                            <Info>
-                                <InfoTitle>Color:</InfoTitle>
-                                <Color color="white"></Color>
-                                <InfoText>(white)</InfoText>
-                                
-                            </Info>
-                            <Info>
-                                <InfoTitle>Size:</InfoTitle>
-                                <InfoText>50 viên</InfoText>
-                            </Info>
-                        </ItemInfo> 
-                        <Right>
-                            <AmountContainer>
-                                <Btn type='amount'>
-                                    <Remove style={{cursor: 'pointer', fontSize:'2rem'}}/>
-                                </Btn>
-                                <Amount>99</Amount>
-                                <Btn type='amount'>
-                                    <Add style={{cursor: 'pointer', fontSize:'2rem'}}/>
-                                </Btn>
-                            </AmountContainer>
-                            <Price>0₫</Price>
-                            <BtnDelete>
-                                <Close style={{fontSize:'2.2rem' }}/>
-                            </BtnDelete>
-                        </Right>
-                    </CartItem>
+                    </CartItem>)) 
+                  }
                 </CartItems>
                 </ItemsContainer> 
                 <CheckoutContainer>
                     <CheckoutCard>
+                        
                         <CheckoutHeader>
                             <CheckoutTitle>Account</CheckoutTitle>
                             <Btn><Edit style={{fontSize:'1.5rem' }}/></Btn>
@@ -567,7 +584,7 @@ const Cart = () => {
                         <SummaryContainer>
                                 <SummaryItem>
                                     <SummaryItemText>Subtotal</SummaryItemText>
-                                    <SummaryPrice>3.250.000₫</SummaryPrice>
+                                    <SummaryPrice>{formatCurrencies(price)}</SummaryPrice>
                                 </SummaryItem>
 
                                 <SummaryItem>
@@ -576,10 +593,10 @@ const Cart = () => {
                                 </SummaryItem>
                                 <SummaryItem type='total'>
                                     <SummaryItemText >Thanh toán</SummaryItemText>
-                                    <SummaryPrice>3.250.000₫</SummaryPrice>
+                                    <SummaryPrice>{formatCurrencies(price)}</SummaryPrice>
                                 </SummaryItem>
                                 <EndLine></EndLine>
-                                <OrderBtn>
+                                <OrderBtn onClick={handlePlaceOrder}>
                                     PLACE YOUR ORDER
                                 </OrderBtn>
                         </SummaryContainer>

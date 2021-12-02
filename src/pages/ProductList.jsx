@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Products from '../components/Products'
 import Newsletter from '../components/Newsletter'
 import Annoucement from '../components/Annoucement'
-import {device} from '../components/GlobalStyle'
-
+import {device} from '../utils/GlobalStyle'
+import {useLocation} from 'react-router-dom'
+import { publicRequest } from '../utils/utils'
 const Container = styled.div``
 const Title = styled.h1`
     margin: 2rem;
     font-size: 4rem;
     font-weight: 400;
     text-align: center;
+    text-transform: uppercase;
 
      @media ${device.tablet} {
         margin: 1rem;
@@ -61,46 +63,72 @@ const Select = styled.select`
 const Option = styled.option``
 
 const ProductList = () => {
+    const location = useLocation();
+    const category = location.pathname.split("/")[3]
+    const [filters, setFilters] = useState({});
+    const [sorts, setSorts] = useState({});
+    const [brands ,setBrands] = useState([])
+    useEffect(() => {
+        const getData = async() => {
+            try {
+                
+                const brandRes = await publicRequest.get('/product/brand');
+                console.log(brandRes)
+                setBrands(brandRes.data);
+            } catch (err) {
+            }
+        }
+        getData()
+    }, [])
+
+    const handlerFilters = (e) => {
+        const value = e.target.value;
+        setFilters({
+            ...filters,
+            [e.target.name]: value,
+        })
+    }
+    const handlerSort = (e) => {
+        const value = e.target.value;
+        setSorts({
+            ...sorts,
+            [e.target.name]: value,
+        })
+    }
+
     return (
         <Container>
             <Navbar/>
             <Annoucement/>
-            <Title>Shoes</Title>
+            <Title>{category}</Title>
             <FilterContainer>
-                    <FilterText>Lọc sản phẩm:</FilterText>
-                    <Select>
-                        <Option disabled selected>Thương hiệu</Option>
-                        <Option>Tất cả</Option>
-                        <Option>Nike</Option>
-                        <Option>Adidas</Option>
-                        <Option>Balenciaga</Option>
-                        <Option>Bitis</Option>
-                    </Select>
-                
-                    <Select>
-                        <Option disabled selected>Loại sản phẩm</Option>
-                        <Option>Tất cả</Option>
-                        <Option>Giày thể thao</Option>
-                        <Option>Sandal</Option>
-                        <Option>Dép</Option>
-                    </Select>
-              
-                    
-                    <Select>
-                        <Option disabled selected>Theo giá</Option>
-                        <Option>Từ thấp đến cao</Option>
-                        <Option>Từ cao đến thấp</Option>
+                    <FilterText>Product filter:</FilterText>
+                    <Select name="brand" onChange={handlerFilters}>
+                        <Option selected value="all">All brand</Option>
+                        {brands.map(brand => (
+                            <Option value={brand.name}>{brand.name}</Option>
+                        ))}
                     </Select>
                     
-                    <Select>
-                        <Option disabled selected>Theo đánh giá</Option>
-                        <Option>Từ thấp đến cao</Option>
-                        <Option>Từ cao đến thấp</Option>
+                    <Select name="criteria" onChange={handlerSort}>
+                        <Option disabled defaultValue selected>Sort products by criteria</Option>
+                        <Option disabled>By rating</Option>
+                        <Option value = "rasc">Rating: from lowest to highest</Option>
+                        <Option value="rdesc">Rating: highest to lowest</Option>
+                        <Option disabled>By price</Option>
+                        <Option value = "pasc">Price: from lowest to highest</Option>
+                        <Option value="pdesc">Price: from highest to lowest</Option>
+                    </Select>
+
+                     <Select name="date" onChange={handlerSort}>
+                        <Option disabled defaultValue selected>Sort products by release date</Option>
+                        <Option value = "ddesc">Newest</Option>
+                        <Option value="dasc">Oldest</Option>
                     </Select>
                 
                
             </FilterContainer>
-            <Products/>
+            <Products category={category} filters={filters} sorts={sorts}/>
             <Newsletter />
             <Footer />
         </Container>

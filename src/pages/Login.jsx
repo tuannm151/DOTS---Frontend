@@ -3,8 +3,12 @@ import styled from "styled-components"
 import {ReactComponent as Logo} from "../img/logo.svg"
 import {ReactComponent as Facebook} from "../img/icons8-facebook-50.svg"
 import {ReactComponent as Google} from "../img/icons8-google-50.svg"
-import {device} from '../components/GlobalStyle'
-
+import {device} from '../utils/GlobalStyle'
+import { useState } from "react"
+import { login } from "../redux/apiFuntion"
+import { useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
+import Swal from 'sweetalert2'
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
@@ -29,7 +33,7 @@ const Wrapper = styled.div`
     border-radius: 2rem;
     overflow: hidden;
     box-shadow: 0px 18px 54px 0px rgba(0,0,0,0.24);
-
+    align-self: center;
     
     @media ${device.desktopM} {
         width: 80%;   
@@ -233,9 +237,21 @@ const Button = styled.button`
     border-radius: 1rem;
     box-shadow: -2px 6px 11px -7px rgba(0,0,0,0.35);
     cursor: pointer;
+    &:disabled {
+        cursor: not-allowed;
+    }
 `
 
 const Login = () => {
+    const [userName, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+    const {isFetching, error} = useSelector((state) => state.user);
+     const handleClick = (e) =>{
+        e.preventDefault();
+        login(dispatch, {userName, password});   
+    } 
+         
     return (
         <Container>
             <Wrapper>
@@ -246,14 +262,14 @@ const Login = () => {
                     <Desc>Don't have an account? <Link>Sign up</Link></Desc>
                     <Form>
                         <InputField>
-                            <Input placeholder="Email" type="email"/>
+                            <Input placeholder="Username" onChange={(e)=>setUsername(e.target.value)}/>
                             <Icon><Mail/></Icon>
                         </InputField>
                         <InputField>
-                            <Input placeholder="Password" />
+                            <Input placeholder="Password" type="password" onChange={(e)=>setPassword(e.target.value)}/>
                             <Icon><RemoveRedEye/></Icon>
                         </InputField>
-                        <ButtonSignUp>Sign in</ButtonSignUp>
+                        <ButtonSignUp onClick={handleClick} disabled={isFetching}>Sign in</ButtonSignUp>
                         <ForgotPasswordField>Forgot your password? </ForgotPasswordField>
                         <Line><LineText>Or sign in with</LineText></Line>
                         <ExternalSignUp>

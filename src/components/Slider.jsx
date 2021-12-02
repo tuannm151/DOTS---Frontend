@@ -3,7 +3,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { sliderItems } from '../data'
-import {device} from './GlobalStyle'
+import {device} from '../utils/GlobalStyle'
 
 const Container = styled.div`
     width: 100%;

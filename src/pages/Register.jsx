@@ -3,9 +3,11 @@ import styled from "styled-components"
 import {ReactComponent as Logo} from "../img/logo.svg"
 import {ReactComponent as Facebook} from "../img/icons8-facebook-50.svg"
 import {ReactComponent as Google} from "../img/icons8-google-50.svg"
-import {device} from '../components/GlobalStyle'
-
-
+import {device} from '../utils/GlobalStyle'
+import { useState } from "react"
+import { publicRequest } from "../utils/utils"
+import Swal from 'sweetalert2'
+import {useHistory} from "react-router-dom"
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
@@ -231,6 +233,45 @@ const Button = styled.button`
 `
 
 const Register = () => {
+    const [infos, setInfos] = useState({});
+    const history = useHistory();
+    const routeChangeLogin = () =>{ 
+     const path = `/login`;
+        history.push(path);
+    }
+
+     const handlerInfos = (e) => {
+        const value = e.target.value;
+        setInfos({
+            ...infos,
+            [e.target.name]: value,
+        })
+    }
+
+    const handlerRegistration = async (e) => {
+        e.preventDefault();
+        try {
+            console.log(infos)
+            const res = await publicRequest.post('/auth/users/save', infos);
+                Swal.fire({
+                position: 'center',
+                title:'Registered successfully',
+                icon:'success',
+                timer: 1000,
+                showConfirmButton: false,
+            });
+            routeChangeLogin();
+        } catch (err){
+            const error = err.response.data.detail?.join('--');
+            Swal.fire({
+                title:  err.response.data.message,
+                text: error,
+                icon: 'warning',
+            });
+        }
+
+    }
+
     return (
         <Container>
             <Wrapper>
@@ -241,25 +282,35 @@ const Register = () => {
                     <Desc>Already have an account? <Link>Sign in</Link></Desc>
                     <Form>
                         <InputField>
-                            <Input id="fullName" name="fullName" placeholder="Full name"/>
+                            <Input onChange={handlerInfos} id="fullName" name="firstName" placeholder="First name"/>
+                            <Icon>
+                                <Person/>
+                            </Icon>
+                        </InputField>
+
+                        <InputField>
+                            <Input onChange={handlerInfos} id="lastName" name="lastName" placeholder="Last name"/>
+                            <Icon>
+                                <Person/>
+                            </Icon>
+                        </InputField>
+
+                        <InputField>
+                            <Input onChange={handlerInfos} id="userName" name="userName" placeholder="User name"/>
                             <Icon>
                                 <Person/>
                             </Icon>
                         </InputField>
                         
                         <InputField>
-                            <Input placeholder="Email" type="email"/>
+                            <Input onChange={handlerInfos} placeholder="Email" name="email" type="email"/>
                             <Icon><Mail/></Icon>
                         </InputField>
                         <InputField>
-                            <Input placeholder="Password" />
+                            <Input onChange={handlerInfos} placeholder="Password" type="password" name="password"/> 
                             <Icon><RemoveRedEye/></Icon>
                         </InputField>
-                        <InputField>
-                            <Input placeholder="Confirm password"/>
-                            <Icon><RemoveRedEye/></Icon>
-                        </InputField>
-                        <ButtonSignUp>Sign up</ButtonSignUp>
+                        <ButtonSignUp onClick={(e) => handlerRegistration(e)}>Sign up</ButtonSignUp>
                         <Line><LineText>Or sign up with</LineText></Line>
                         <ExternalSignUp>
                             <Button>

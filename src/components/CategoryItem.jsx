@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import {device} from './GlobalStyle'
-
+import {device} from '../utils/GlobalStyle'
+import {Link} from "react-router-dom"
 const Image = styled.img`
     width: 100%;
     height: 100%;
@@ -77,11 +77,13 @@ const Container = styled.div`
 const CategoryItem = ({item}) => {
     return (
         <Container>
-            <Image src={item.img}/>
+            <Link to={`/products/list/${item.name}`}>
+            <Image src={item.imageUrl}/>
             <Info>
-                <Title>{item.title}</Title>
+                <Title>{item.name}</Title>
                 <Button>MUA NGAY</Button>
             </Info>
+            </Link>
         </Container>
     )
 }

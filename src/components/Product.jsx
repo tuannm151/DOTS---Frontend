@@ -2,7 +2,7 @@ import { FavoriteBorder, ShoppingCart, Visibility} from '@material-ui/icons'
 import PrettyRating from "pretty-rating-react";
 import React from 'react'
 import styled from 'styled-components'
-import {device} from './GlobalStyle'
+import {device} from '../utils/GlobalStyle'
 
 import {
   faStar,
@@ -11,6 +11,7 @@ import {
 import {
   faStar as farStar,
 } from "@fortawesome/free-regular-svg-icons";
+import { Link, useHistory } from 'react-router-dom';
 
 const starIcons =  {
   star: {
@@ -216,9 +217,15 @@ const Wrapper = styled.div`
     display: flex;
     justify-content:  center;
     align-items: center;
-
+    width: 95%;
+    place-self: center;
+    
     @media ${device.tablet} {
         height: auto;
+        
+    }
+    @media ${device.mobileL} {
+        width: 100%;
     }
     @media ${device.mobileSS} {
         height: 40rem;
@@ -226,16 +233,21 @@ const Wrapper = styled.div`
 `
 
 const Product = ({item}) => {
+    const history = useHistory();
+     const routeChange = () =>{ 
+     const path = `/product/${item.productId}`;
+        history.push(path);
+    }
     return (
     <Wrapper>
 
         <Container>
-            <Image src={item.img}/>
+            <Image src={item.imageUrl}/>
             <Info>
-                <Title>{item.name}</Title>
-                <Price>{item.price}</Price>
+                <Title>{item.productName}</Title>
+                <Price>{item.unitPrice}</Price>
                 <Stars>
-                    <PrettyRating value={item.stars} icons={starIcons.star} colors={starColors.star}/>
+                    <PrettyRating value={item.overallRating} icons={starIcons.star} colors={starColors.star}/>
                 </Stars>
             </Info>
             <Interaction>
@@ -245,13 +257,16 @@ const Product = ({item}) => {
                     </Icon>
                     <Text>Thêm vào giỏ hàng</Text>
                 </Button>
-           
-                <Button>
-                    <Icon>
-                     <Visibility/>
-                    </Icon>
-                    <Text>Xem chi tiết</Text>
+                
+                
+                <Button onClick={routeChange}>
+                        <Icon>
+                        <Visibility/>
+                        </Icon>
+                        <Text>Xem chi tiết</Text>
                 </Button>
+                
+                
             </Interaction>
 
         </Container>

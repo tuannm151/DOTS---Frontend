@@ -1,7 +1,7 @@
 import { Send } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
-import {device} from './GlobalStyle'
+import {device} from '../utils/GlobalStyle'
 
 const Wrapper = styled.div`
     display: flex;

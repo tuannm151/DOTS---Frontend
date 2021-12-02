@@ -4,7 +4,8 @@ import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import Newsletter from "../components/Newsletter"
 import PrettyRating from "pretty-rating-react";
-import {device} from '../components/GlobalStyle'
+import {BASE_URL, ADMIN_API_KEY, USER_API_KEY} from "../utils/constant"
+import {device} from '../utils/GlobalStyle'
 import {
   faStar,
   faStarHalfAlt,
@@ -13,6 +14,13 @@ import {
   faStar as farStar,
 } from "@fortawesome/free-regular-svg-icons";
 import { Add, Remove } from "@material-ui/icons"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useLocation } from "react-router"
+import { formatCurrencies, publicRequest, userRequest } from "../utils/utils"
+import { addProduct } from "../redux/cartRedux"
+import { useDispatch } from "react-redux"
+import Swal from 'sweetalert2'
 
 const starIcons =  {
   star: {
@@ -27,14 +35,14 @@ const starColors = {
 };
 
 const Container =  styled.div`
-
+    
 `
 const Wrapper = styled.div`
     display: flex;
     padding: 5rem;
     color: #2f504d;
-    height: min(95vh, 82rem);
-
+    height: min(90vh, 82rem);
+    
     @media ${device.desktopS} {
         height: min(95vh, 72rem);
     }
@@ -91,13 +99,12 @@ const Image = styled.img`
 
 const InfoContainer = styled.div`
     flex: 1;
-    padding: 2rem 6rem;
+    padding: 2rem 8rem;
     display: flex;
     flex-direction: column;
-
-     @media ${device.laptop} {
+    @media ${device.laptop} {
         padding: 1rem 2rem 0 3rem;
-        
+        align-self: center;
     }
     @media ${device.mobile} {
          padding: 1rem 1rem 0 1rem;
@@ -292,71 +299,112 @@ const Button = styled.button`
 `
 
 const Product = () => {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
+    const [product, setProduct] = useState({});
+    const [quantity, setQuantity] = useState(1);
+    const [color, setColor] = useState('');
+    const [size, setSize] = useState(0);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await publicRequest.get(`/product?id=${id}`);
+                setProduct(res.data);
+            } catch (err) {
+                console.error(err);
+            }
+            
+        }
+        getProduct();
+    }, [id])
+
+    const handleQuantity = (type) => {
+        if(type === 'decrease') {
+            if(quantity === 1) return;
+            setQuantity(quantity - 1);
+        } else {
+            if(quantity === 99) return;
+            setQuantity(quantity+1);
+        }
+    }
+
+    const  handleAddToCart = async () =>{
+        try {
+            const res = await userRequest.post('/cart/add', {
+                productId: product.productId,
+                quantity,
+                color,
+                size: size === 0 ? product.size[0] : size 
+            });
+            Swal.fire({
+                position: 'center',
+                title:'Added to cart',
+                icon:'success',
+                timer: 1000,
+                showConfirmButton: false,
+            });
+            dispatch(addProduct());
+        } catch (err) {
+            const res = err.response.data;
+           
+            Swal.fire({
+                title:  res.status === 403 ? 'Please login' : res.detail[0],
+                text: res.message,
+                icon: 'warning',
+            });
+        }
+    };
+
     return (
         <Container>
             <Navbar/>
             <Annoucement/>
             <Wrapper>
                 <ImgContainer>
-                    <Image src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/91b5317e-f381-40c5-8506-1330b776e53e/sb-zoom-blazer-mid-skate-shoe-bdtQ2K.png"/>
+                    <Image src={product.imageUrl}/>
                 </ImgContainer>
                 
                 <InfoContainer>
-                     <Category>Giày thể thao</Category>
-                     <Title>Nike Air Pro Max</Title> 
+                     <Category>{product.category}</Category>
+                     <Title>{product.productName}</Title> 
                      <Reviews>
-                        <PrettyRating value={4} icons={starIcons.star} colors={starColors.star} /> 
-                        <ReviewsText>4.4 (4 reviews)</ReviewsText>    
+                        <PrettyRating value={product.overallRating} icons={starIcons.star} colors={starColors.star} /> 
+                        <ReviewsText>{product.overallRating} ({product.totalRating})</ReviewsText>    
                     </Reviews>  
-                    <Desc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, ipsa magni. Inventore ratione similique eaque aut, veniam in rerum! Fugit fugiat nesciunt et optio eius deleniti harum natus eum impedit.</Desc>
-                    <Price>3.250.000₫</Price>
+                    <Desc>{product.description}</Desc>
+                    <Price>{formatCurrencies(product.unitPrice)}</Price>
 
                    <Form>
                         <FormColor>
                     <FormTitle>Color</FormTitle>
                     <FormRadioGroup>
-                        <FormRadio>
-                            <InputRadio type="radio" name="color"></InputRadio>
-                            <Radio color='white'></Radio>
-                        </FormRadio>
-                        <FormRadio>
-                            <InputRadio type="radio" name="color"></InputRadio>
-                            <Radio color='black'></Radio>
-                        </FormRadio>
-                        <FormRadio>
-                            <InputRadio type="radio" name="color"></InputRadio>
-                            <Radio color='darkblue'></Radio>
-                        </FormRadio>
-                        <FormRadio>
-                            <InputRadio type="radio" name="color"></InputRadio>
-                            <Radio color='gray'></Radio>
-                        </FormRadio>
-                        <FormRadio>
-                            <InputRadio type="radio" name="color"></InputRadio>
-                            <Radio color='gold'></Radio>
-                        </FormRadio>
+                        {product.color?.map((cl) => (
+                            <FormRadio key={cl} onClick={() => setColor(cl)}>
+                                <InputRadio type="radio" name="color"></InputRadio>
+                                <Radio color={cl}></Radio>
+                            </FormRadio>
+                        ))}
+                        
+                       
                     </FormRadioGroup>
                 </FormColor>
                     <FormSize>
                         <FormTitle>Size</FormTitle>
-                        <SizeSelect>
-                            <SizeOption>39</SizeOption>
-                            <SizeOption>40</SizeOption>
-                            <SizeOption>41</SizeOption>
-                            <SizeOption>42</SizeOption>
-                            <SizeOption>43</SizeOption>
-                            <SizeOption>44</SizeOption>
-                            <SizeOption>45</SizeOption>
+                        <SizeSelect onChange={(e) => setSize(e.target.value)}>
+                            {product.size?.sort().map(sz => (
+                                <SizeOption key={sz}>{sz}</SizeOption>
+                            ))}
                         </SizeSelect>
                     </FormSize>
                    </Form>  
                 <AddContainer>
                     <AmountContainer>
-                        <Remove style={{flex: 1, cursor: 'pointer', fontSize:'1.8rem'}}/>
-                        <Amount>1</Amount>
-                        <Add style={{flex: 1, cursor: 'pointer',fontSize:'1.8rem'}}/>
+                        <Remove onClick={() => handleQuantity("decrease")} style={{flex: 1, cursor: 'pointer',width:'100%', height:'100%', padding:'0.8rem'}}/>
+                        <Amount>{quantity}</Amount>
+                        <Add onClick={() => handleQuantity("increase")} style={{flex: 1, cursor: 'pointer',width:'100%', height:'100%', padding:'0.8rem'}}/>
                     </AmountContainer>
-                    <Button>Add to cart</Button>
+                    <Button onClick={handleAddToCart}>Add to cart</Button>
                 </AddContainer>
 
                 </InfoContainer>

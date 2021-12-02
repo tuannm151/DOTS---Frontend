@@ -2,7 +2,7 @@ import { Email, Facebook, GitHub, Twitter } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 import logo from '../img/logo.png'
-import {device} from './GlobalStyle'
+import {device} from '../utils/GlobalStyle'
 const Wrapper = styled.div`
     width: 100%;
     display: flex;
